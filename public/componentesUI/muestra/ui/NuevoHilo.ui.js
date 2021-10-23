@@ -7,9 +7,10 @@ class UiNuevoHilo{
     nuevoHilo(datosnhilo){
         serNuevoHilo.hacerPeticion('/nuevohilo',datosnhilo,'POST').then(r=>{
             this.asignarTanquesOpc();
-            serNotificacionNH.agregarNotificacion('exito',r.body.msg);   
+            serNotificacionNH.notificarToast('success',r.body.msg);   
         }).catch(err=>{
             console.log(err)
+            serNotificacionNH.notificarToast('error',"En la peticion")
         })
     }
 
@@ -41,7 +42,7 @@ class UiNuevoHilo{
     asignarTanque(idt){
         serNuevoHilo.hacerPeticion('/agregartanque',{idtanque:idt},'POST').then(r=>{
             this.activarTanque(idt)
-            serNotificacionNH.agregarNotificacion('exito',r.body.msg)
+            serNotificacionNH.notificarToast('success',r.body.msg)
         }).catch(err=>{
             console.log(err)
         })
@@ -49,7 +50,7 @@ class UiNuevoHilo{
     asignarTanques(){
         serNuevoHilo.hacerPeticion('/agregartanques',{},'POST').then(r=>{
             this.activarTanques()
-            serNotificacionNH.agregarNotificacion('exito',r.body.msg)
+            serNotificacionNH.notificarToast('success',r.body.msg)
         }).catch(err=>{
             console.log(err)
         })
@@ -71,7 +72,7 @@ class UiNuevoHilo{
 
     activarTanque(idt){
         document.getElementById(`t${idt}`).classList.add('listo');
-        serNotificacionNH.agregarNotificacion('exito','se agregaron tanques al hilo')
+        serNotificacionNH.notificarToast('success','se agregaron tanques al hilo')
     }
     activarTanques(){
         document.querySelectorAll('li').forEach(el=>{

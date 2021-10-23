@@ -9,7 +9,7 @@ class UiTipoMuestra{
             this.listarTipoMuestra(datos.body)
         }).catch(err=>{
             console.log(err)
-            serNotificacionTM('error','erro al cargar')
+            serNotificacionTM.notificarToast('error','erro al cargar')
         })
     }
 
@@ -34,10 +34,11 @@ class UiTipoMuestra{
     }
     nuevoTipoMuestra(tipomuestra){
         serTipoMuestra.hacerPeticion('/tipomuestra',tipomuestra,'POST').then(r=>{
-            serNotificacionTM.agregarNotificacion('exito',r.body.msg);
+            this.obtnerTipoMuestra();
+            serNotificacionTM.notificarToast('succes',r.body.msg);
         }).catch(err=>{
             console.log(err)
-            serNotificacionTM.agregarNotificacion('error','ocurrio un error');
+            serNotificacionTM.notificarToast('error','ocurrio un error');
         })
     }
 
@@ -47,7 +48,7 @@ class UiTipoMuestra{
             serNotificacionTM.notificarToast("success",r.body.msg);   
         }).catch(err=>{
             console.log(err)
-            serNotificacionTM.agregarNotificacion('error','ocurrio un error');
+            serNotificacionTM.notificarToast('error','ocurrio un error');
         })
     }
 

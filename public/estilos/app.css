@@ -1,0 +1,373 @@
+/**
+--- estilos de la estructura de la aplicacion.
+*/
+/*-===========importacion de colores ================-*/
+@import url(./colores.css);
+/*-====================preloader=========================-*/
+
+.contenedor-carga{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: 2;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--cuarto-color);
+    color: var(--texto-color-light);
+    transition: 2s all ease-in-out;
+}
+.contenedor-dots{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dots{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin: 20px;
+    background-color: var(--segundo-color);
+    transform: scale(0.2);
+    animation: anim 1.4s infinite;
+}
+.dots:nth-child(2){
+    animation-delay: 0.2s;
+}
+.dots:nth-child(3){
+    animation-delay: 0.4s;
+}
+.dots:nth-child(4){
+    animation-delay: 0.6s;
+}
+.dots:nth-child(5){
+    animation-delay: 8s;
+}
+.dots:nth-child(6){
+    animation-delay: 1s;
+}
+
+@keyframes anim{
+    0%,100%{
+        transform: scale(0.2s);
+    }
+    50%{
+        transform: scale(1);
+    }
+}
+/*-============== encabezado =======================-*/
+.encabezado
+{
+    width: 100%;
+    height: 15vh;
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+    background-color: var(--segundo-color);
+    place-items: center;
+}
+.encabezado h1
+{
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--titulo-color);
+}
+.encabezado img
+{
+    width: 100px;
+    height: 100px;
+}
+
+#btn-menu
+{
+    display: none;
+}
+
+/*-==================== menu horizontal====================-*/
+.menu-pag
+{
+    width: 100%;
+    height: 70px;
+    background-color: var(--tercer-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu-pag li{
+    display: inline;
+    padding: 50px 50px;
+}
+.menu-pag a
+{
+    display: inline-block;
+    text-decoration: none;
+    color: var(--texto-color-light);
+    font-size: 1.5rem;
+}
+
+.menu-app
+{
+    width: 100vw;
+    height: 8vh;
+    background-color: var(--tercer-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-app li{
+    display: inline;
+    padding: 35px 35px;
+}
+
+.menu-app a
+{
+    display: inline-block;
+    text-decoration: none;
+    color: var(--texto-color-light);
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+.menu-app a:hover
+{
+    color: var(--primer-boton-light);
+}
+
+/*-=============== modulo =================-*/
+.contenedor-modulo
+{
+    display: grid;
+    grid-template-columns: 15% 85%;
+    
+
+}
+.contenedor-modulo h1
+{
+    color: var(--texto-color-light);
+}
+.menu-lateral
+{
+    width: 100%;
+    height: 77vh;
+    background-color: var(--cuarto-color);
+    animation: intro-modulo .6s ease;
+}
+.menu-lateral div
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-lateral button
+{
+    width: 100%;
+    background-color: var(--quinto-color);
+    border: none;
+    color: var(--texto-color-light);
+    padding: 20px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.menu-lateral img{
+    width: 150px;
+    height: 150px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-entrar-salir
+{
+    display: none;
+}
+.contenido-pagina
+{
+    width: 100%;
+}
+
+.pagina
+{
+    width: 100%;
+    height: 70vh;
+    animation: intro-page 0.6s ease;
+}
+@keyframes intro-modulo {
+    from{
+        opacity: 0;
+        transform: translateX(-100%) scale(0.9);
+    }
+    
+}
+
+@keyframes intro-page {
+    from{
+        opacity: 0;
+        transform: translate3d(0,0,0) scale(0.3);
+    }
+    
+}
+
+.pcard-public{
+    position: relative;
+    width: 100%;
+  }
+
+.pimgpublic{
+    position: relative;
+    width: 100%;
+    height: 150px;
+    margin: 30px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    top: -100px;
+    left: 20px;
+  }
+  
+  .pimgpublic img{
+    max-width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
+  .perfil-datos{
+      display: grid;
+      grid-template-columns: 30% 30% 30%;
+      gap: 5%;
+      color: var(--texto-color-light);
+  }
+  
+  .perfil-datos input{
+      width: 80%;
+  }
+hr{
+    background-color: var(--titulo-color);
+}
+
+.elementosperfil{
+    display: flex;
+    justify-content: center;
+}
+.elementosperfil img{
+    width: 50px;
+    height: 50px;
+}
+
+.avatarnombre{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.btn-perfil{
+    background-color: var(--segundo-color);
+    border: none;
+    color: var(--texto-color);
+    cursor: pointer;
+}
+
+.btn-salir:hover{
+    color: var(--titulo-color);
+}
+
+
+/*-============================== RESPONSIVIDAD =========================--*/
+
+@media screen and (max-width:768px) {
+    .encabezado
+    {
+        height: 8vh;
+    }
+    .encabezado h1
+    {
+        font-size: 1rem;
+    }
+    .encabezado img
+    {
+        height: 8vh;
+    }
+
+    .menu-pag li{
+        padding: 40px 40px;
+    }
+    .menu-app li{
+        padding: 2px 8px;
+    }
+    .menu-horizontal a
+    {
+        font-size: 1.2rem;
+    }
+
+    .contenedor-modulo
+    {
+        grid-template-columns: 20% 80%;
+    }
+}
+
+@media screen and (max-width:540px) {
+    .encabezado
+    {
+        height: 8vh;
+    }
+    .encabezado h1
+    {
+        font-size: 0.6rem;
+    }
+    .encabezado img
+    {
+        width: 50px;
+        height: 50px;
+    }
+    #btn-irlogin
+    {
+        display: none;
+    }
+    
+    #btn-menu
+    {
+        display: block;
+        font-size: 0.5rem;
+    }
+    .contenedor-modulo
+    {
+        grid-template-columns: 100%;
+        padding: 10px 20px;
+    }
+
+    .menu-vertical
+    {
+        display: none;
+    }
+
+    .menu-app
+    {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        background-color: var(--tercer-color);
+        display: flex;
+        justify-content: center;
+        overflow-y: auto;
+        left: 100%;
+        transition: left 0.3s;
+    }
+    
+    .menu-app li{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 0;
+    }
+    .menu-app a:hover
+    {
+        color: var(--titulo-color);
+    }  
+    
+}
+
+@media screen and (max-width:360px) {
+
+}

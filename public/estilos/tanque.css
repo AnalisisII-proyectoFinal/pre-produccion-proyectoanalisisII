@@ -1,0 +1,63 @@
+@import url('./colores.css');
+
+.contenedor-tanques{
+    width: 98%;
+    height: 76vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    color: var(--titulo-color);
+    padding: 0px 10px 0px 10px;
+}
+.contenedor-tanques form{
+    display: grid;
+    grid-template-columns: 30% 25% 25%;
+    gap: 5%;
+
+}
+
+.editar-tanque form{
+    display: grid;
+    grid-template-columns: 30% 25% 25%;
+    gap: 5%;
+
+}
+
+
+
+
+.form-cloracion{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+
+.nuevo-tanque{
+    justify-content: center;
+}   
+
+.color-mantenimiento{
+    color: var(--titulo-color);
+}
+
+.form-mantenimiento{
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20%;
+    gap: 5%;
+}
+
+.editar-metodoclora{
+    padding: 10px 10px 10px 10px;
+}
+
+.editar-mantenimiento{
+    padding: 10px 95px 10px 10px;
+}
+
+.editar-nuevo{
+    padding: 10px 95px 10px 10px;
+}
+
+.editar-tanque{
+    padding: 10px 10px 10px 10px;
+}

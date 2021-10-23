@@ -1,0 +1,108 @@
+.contenedor-reporte{
+    width: 98%;
+    height: 76vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    color: var(--titulo-color);
+    padding: 0px 10px 0px 10px;
+}
+.contenedor-informe{
+    padding: 10px 10px 10px 10px;
+    height: 85vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.informe-centro-salud{
+    background-color: var(--segundo-color);
+    color:#000;
+}
+.inf-cabecera{
+    display: grid;
+    grid-template-columns: 15% 50% 15% 20%;
+    place-items: center;
+}
+.cabecera-datos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 0%;
+}
+.cabecera-datos p{
+    font-size: 0.5rem;
+}
+.inf-cabecera img{
+    width: 100px;
+    height: 100px;
+}
+.inf-datos-cabecera{
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    gap: 5%;
+    font-weight: bold;
+    margin-left: 10px;
+    text-align: left;
+    font-size: 0.6rem;
+}
+.inf-datos-cabecera li{
+    list-style-type: none;
+}
+.inf-datos-cabecera span{
+    text-decoration: underline;
+    text-transform: uppercase;
+    margin-left: 5px;
+}
+.fila-dato-inf{
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+    text-align: center;
+}
+
+.informe-tanque{
+    background-color: var(--segundo-color);
+    color:#000;
+}
+.inf-t-cabecera{
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    place-items: center;
+    text-align: center;
+    line-height: 1%;
+}
+.inf-t-cabecera img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.inf-t-cuerpo{
+    text-align: center;
+}
+.tabla-muestras{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+.datos-tanque{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.img-tanque {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.img-tanque img{
+    width: 40%;
+    height: 300px;
+}
+.detalles-tanq{
+    display: flex;
+    flex-direction: column;
+    justify-items:left;
+}
+.detalles-tanq span{
+    font-weight: bold;
+}

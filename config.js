@@ -1,9 +1,7 @@
-if (!process.env.NODE_ENV || process.env.NODE_ENV.indexOf('production')===-1) {
-    require('dotenv').config();              
-}
+require('dotenv').config();
 module.exports = {
     api:{
-        port: process.env.API_PORT || 9000,
+        port: process.env.API_PORT || 8080,
     },
     jwt: {
         secret: process.env.JWT_SECRET || 'notasecret!',

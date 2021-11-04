@@ -11,8 +11,6 @@
 {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-  /* display: grid;
-  grid-template-columns: 20% 20% 20% 20%; */
   gap: 5%;
   width: 98%;
   height: 60vh;

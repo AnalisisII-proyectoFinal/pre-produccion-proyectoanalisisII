@@ -63,7 +63,7 @@
     height: 15vh;
     display: grid;
     grid-template-columns: 15% 70% 15%;
-    background-color: var(--segundo-color);
+    background-color: var(--segundo-color); 
     place-items: center;
 }
 .encabezado h1

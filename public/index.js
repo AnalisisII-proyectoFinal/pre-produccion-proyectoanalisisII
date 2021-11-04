@@ -4,6 +4,7 @@
  * importacion del general
  * @requires modulo: App  todos los componentes de la aplicacion
  */
+
 import {App,Init} from './App.js';
  window.addEventListener('load',()=>{
     const preloader=document.querySelector('.contenedor-carga');

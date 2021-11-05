@@ -57,7 +57,7 @@ class UiInformeTanque{
     }
     informeTanque(tanque){
         console.log(tanque)
-        const mante 
+        let mante=null; 
         if (tanque.mants.length===0) {
             mante=0;
         }else{

@@ -151,7 +151,7 @@ export function InformeCS(muestras,datos) {
         const doc = document.getElementById('inf-doc');
         var opt = {
           margin:1,
-          filename:"Informe" + new Date().toISOString() + ".xls",
+          filename:"Informe" + new Date().toISOString() + ".pdf",
           image: { type: 'png', quality: 0.98 },
           html2canvas: { dpi:192,letterRendering:true, scale: 2, useCORS:true },
           jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }

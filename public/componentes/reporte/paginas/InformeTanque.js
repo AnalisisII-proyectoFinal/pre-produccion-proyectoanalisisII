@@ -62,21 +62,29 @@ export function InformeTanque(mant,mante) {
     $tblMantenimiento.appendChild($tblHead);
     const $tblbody=document.createElement('tbody');
     const $frag = document.createDocumentFragment();
-    
-    for (let i = 0; i < mante.length; i++) {
-        const $fila = document.createElement('tr');
-        $fila.innerHTML=`
-            <td class="fila-dato-inf">1</td>
-            <td class="fila-dato-inf">${mante[i].titulo}</td>
-            <td class="fila-dato-inf">${mante[i].descripcion}</td>
-            <td class="fila-dato-inf">${mante[i].mfecha}</td>
-            <td class="fila-dato-inf">
-                <img width="50px" height="50px" src="https://res.cloudinary.com/municipalidad-san-jose-chacaya/image/upload/v1633991805/yrzok1aak9dd1z8dyc8q.png" alt="">
-            </td>
-            <td class="fila-dato-inf">${mante[i].mimg}</td>
-        `;
-        $frag.appendChild($fila);
+    if (mante!==0) {
+        for (let i = 0; i < mante.length; i++) {
+            const $fila = document.createElement('tr');
+            $fila.innerHTML=`
+                <td class="fila-dato-inf">1</td>
+                <td class="fila-dato-inf">${mante[i].titulo}</td>
+                <td class="fila-dato-inf">${mante[i].descripcion}</td>
+                <td class="fila-dato-inf">${mante[i].mfecha}</td>
+                <td class="fila-dato-inf">
+                    <img width="50px" height="50px" src="https://res.cloudinary.com/municipalidad-san-jose-chacaya/image/upload/v1633991805/yrzok1aak9dd1z8dyc8q.png" alt="">
+                </td>
+                <td class="fila-dato-inf">${mante[i].mimg}</td>
+            `;
+            $frag.appendChild($fila);
+        }
+    }else{
+        const $fila2 = document.createElement('tr');
+            $fila.innerHTML=`
+                <td class="fila-dato-inf">No Hay mantenimientos</td>
+            `;
+            $frag.appendChild($fila2);
     }
+    
     $tblbody.appendChild($frag);
     
     $tblMantenimiento.appendChild($tblHead);

@@ -16,6 +16,7 @@ class UiInformeTanque{
     }
     obtenerTanque(idt){
         servRep.hacerPeticion(`/tanque/${idt}`,{},'GET').then(dato=>{
+            console.log(dato.body[0])
             this.informeTanque(dato.body[0])
         }).catch(err=>{
             console.log(err)
@@ -55,8 +56,14 @@ class UiInformeTanque{
 
     }
     informeTanque(tanque){
-        const mante=tanque.mants;
-       ventanModal(InformeTanque(tanque,mante))
+        console.log(tanque)
+        const mante 
+        if (tanque.mants.length===0) {
+            mante=0;
+        }else{
+            mante=tanque.mants;
+        } 
+       ventanModal(InformeTanque(tanque,mante)) 
     }
 }
 export default UiInformeTanque;

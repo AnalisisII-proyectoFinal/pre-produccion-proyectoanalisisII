@@ -1,7 +1,7 @@
 import ServicioMuestra from '../servicio/Muestra.ser.js';
-import Notificacion from '../../utilidades/Notificacion.js';
+import {notificarToast} from '../../utilidades/Notificacion.js';
 const serTipoMuestra = new ServicioMuestra();
-const servNoti=new Notificacion();
+
 
 class UiTipoMuestra{
     obtnerTipoMuestras(){
@@ -9,7 +9,7 @@ class UiTipoMuestra{
             this.listarTipoMuestra(datos.body)
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast('error','Al  cargar datos')
+            notificarToast('error','Al  cargar datos')
         })
     }
 
@@ -38,7 +38,7 @@ class UiTipoMuestra{
             this.editarTipoMuestra(dato.body[0])
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast('error','Al  cargar datos')
+            notificarToast('error','Al  cargar datos')
         })
     }
     editarTipoMuestra(tipomuestra){
@@ -53,10 +53,10 @@ class UiTipoMuestra{
     actualizarTipoMuestra(tipomuestra){
         serTipoMuestra.hacerPeticion('/tipomuestra',tipomuestra,'PUT').then(res=>{
             this.obtnerTipoMuestras();
-            servNoti.notificarToast('success',res.body.msg)
+            notificarToast('success',res.body.msg)
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast('error','Al  actulizar datos')
+            notificarToast('error','Al  actulizar datos')
         })
     }
    /*  nuevoTipoMuestra(tipomuestra){

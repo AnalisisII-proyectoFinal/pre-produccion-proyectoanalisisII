@@ -1,5 +1,5 @@
 import UiMantenimiento from "../ui/Mantenimiento.ui.js";
-import ServicioNotificacion from "../../utilidades/Notificacion.js";
+import {notificarToast} from "../../utilidades/Notificacion.js";
 
 function convertirFecha(f) {
   let fe = f.split('/');
@@ -72,8 +72,7 @@ export function EditarMantenimiento(mt) {
         const actMant=new UiMantenimiento();
         actMant.actualizarMantenimiento(datosMant);
       }else{
-        const noti = new ServicioNotificacion();
-        noti.notificarToast('error',"complete todos los campos")
+        notificarToast('error',"Complete todos los campos")
       }
     })
 

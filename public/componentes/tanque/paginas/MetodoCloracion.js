@@ -2,7 +2,7 @@
 //@ts-check
 import{validarInput}from '../../utilidades/ValidarFormulario.js';
 import UiMetodoCloracion from '../ui/MetodoCloracion.ui.js';
-import ServicioNotificacion from '../../utilidades/Notificacion.js';
+import {notificarToast} from '../../utilidades/Notificacion.js';
 /**
  * creacion de las opciones que tendra el modulo dashboard
  * @returns {void} historial del modulo y funcionalidades
@@ -58,7 +58,7 @@ export function MetodoCloracion(){
             }else if (e.target.classList.contains('eliminar')){
               const idmc = e.target.getAttribute('_id');
               let rConf = confirm("¿Desea eliminar el Metodo de cloracion?");
-              rConf ? uiMetCl.eliminarMetodoCloracion(idmc):servNoti.notificarToast("info","Cancelado");
+              rConf ? uiMetCl.eliminarMetodoCloracion(idmc):notificarToast("info","Cancelado");
             }
           })
           const form = document.querySelector ('.form-cloracion');
@@ -71,9 +71,7 @@ export function MetodoCloracion(){
 
           const btnGuardar=document.getElementById('btn-mt-g');
           btnGuardar.addEventListener('click',(e)=>{
-            e.preventDefault();
-            console.log('presionando')
-            
+            e.preventDefault();            
             const metodo=document.getElementById('m-metodo').value;
             const desc=document.getElementById('m-desc').value;
             if (metodo !=='' || desc!=='') {
@@ -83,7 +81,7 @@ export function MetodoCloracion(){
               }
               uiMetCl.nuevoMetodoCloracion(metodoD);
             }else{
-              servNoti.notificarToast("error","llene todos los campos");
+              notificarToast("error","Llene todos los campos");
             }
           })
         }

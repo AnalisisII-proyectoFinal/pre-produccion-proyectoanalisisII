@@ -1,5 +1,5 @@
 import ServicioDashboard from "../servicio/dashboard.ser.js";
-import ServicioNotificacion from "../../utilidades/Notificacion.js";
+import {notificarToast} from "../../utilidades/Notificacion.js";
 import { TargetaDash } from "../paginas/TargetaDash.js";
 const serDashboar = new ServicioDashboard();
 const servNoti = new ServicioNotificacion();
@@ -9,7 +9,7 @@ class UiHiloActual{
             this.crearTargetas(datos.body)
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast("error","Al cargar los datos")
+            notificarToast("error","Al cargar los datos")
         })
     }
 

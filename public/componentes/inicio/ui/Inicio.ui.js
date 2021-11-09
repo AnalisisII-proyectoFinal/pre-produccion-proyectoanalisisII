@@ -1,7 +1,6 @@
 import ServicioInicio from '../servicio/Inicio.ser.js';
-import  ServicioNotificacion from '../../utilidades/Notificacion.js';
+import {notificarToast} from '../../utilidades/Notificacion.js';
 const serInicio = new ServicioInicio();
-const servNoti = new ServicioNotificacion();
 
 class UiInicio{
     obtenerHiloActual(){
@@ -13,7 +12,7 @@ class UiInicio{
             Al: ${fechaf} [${datos.body[0].porcentaje} %] <progress max="100" value="${datos.body[0].porcentaje}" class="progreso-muestra">`;
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast("error","Al Cargar los datos")
+            notificarToast("error","Al Cargar los datos")
         })
     }
     formatearFecha(fecha){
@@ -28,7 +27,7 @@ class UiInicio{
             this.crearTargetas(datos.body)
         }).catch(error=>{
             console.log(error)
-            servNoti.notificarToast("error","Al Cargar los datos")
+            notificarToast("error","Al Cargar los datos")
         })
     }
 
@@ -78,7 +77,7 @@ class UiInicio{
             this.crarTargetasPublicacion(datos.body)
         }).catch(error=>{
             console.log(error)
-            servNoti.notificarToast("error","Al Cargar los datos")
+            notificarToast("error","Al Cargar los datos")
         })
     }
 
@@ -110,10 +109,9 @@ class UiInicio{
     obtnerMisionVision(){
         serInicio.hacerPeticion('/misionvision',{},'GET').then(datos=>{
             this.mostrarvisionmision(datos.body[0])
-            console.log(datos.body);
         }).catch(error=>{
             console.log(error)
-            servNoti.notificarToast("error","Al Cargar los datos")
+            notificarToast("error","Al Cargar los datos")
         })
     }
 

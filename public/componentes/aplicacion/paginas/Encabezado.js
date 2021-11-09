@@ -1,6 +1,4 @@
 import UiAplicacion from "../ui/Aplicacion.ui.js";
-import {ventanModal} from "../../utilidades/VentanaModal.js";
-import {EditarPerfil} from "../paginas/Perfil.js";
 export function Encabezado() {
     const $Encabezado=document.createElement('head');
     $Encabezado.classList.add('encabezado')

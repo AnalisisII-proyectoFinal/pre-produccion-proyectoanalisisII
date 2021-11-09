@@ -2,7 +2,7 @@
 import{validarInput}from '../../utilidades/ValidarFormulario.js'
 
 import UiTipoMuestra from '../ui/TipoMuestra.ui.js';
-import ServicioNotificacion from '../../utilidades/Notificacion.js';
+import {notificarToast} from '../../utilidades/Notificacion.js';
 
 /**
  * creacion de las opciones que tendra el modulo dashboard
@@ -57,8 +57,7 @@ export function TipoMuestra(){
             const $descTM= document.getElementById('t-desc').value;
             
             if($idtm===''||$tipoM===''||$descTM===''){
-              const servN = new ServicioNotificacion();
-              servN.notificarToast('error',"Llene todos los datos");
+              notificarToast('error',"Llene todos los datos");
             }else{
               let datosTM={
                 id:$idtm,

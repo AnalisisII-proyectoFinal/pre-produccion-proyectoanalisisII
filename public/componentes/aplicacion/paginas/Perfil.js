@@ -104,11 +104,6 @@ export function EditarPerfil(datosUs) {
           cambiarP.cambiarPin(p)
         }
       })
-      
-      
-
-
-
     }
     setTimeout(()=>iniEditarPerfil(),100);
     return $editarperfil;

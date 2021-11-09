@@ -1,7 +1,7 @@
 //import pticiones 
 import{validarInput}from '../../utilidades/ValidarFormulario.js';
 import UiUsuario from "../ui/NuevoUsuario.ui.js";
-import ServicioNotificacion from '../../utilidades/Notificacion.js';
+import {notificarToast} from '../../utilidades/Notificacion.js';
 export function CrearUsuarios(){
     const $crearusuarios = document.createElement('div');
         $crearusuarios.classList.add("pagina");
@@ -86,8 +86,7 @@ export function CrearUsuarios(){
             const perm = document.getElementById('u-per').value;
             let genero = (gen > 1)?"masculino":"femenino";
             if (pn===''||sn===''||pa===''||sa===''||fn===''|| dpi===''||gen===''||tel ===''||email===''|| dir===''||carg===''||perm==='') {
-              const servNoti = new ServicioNotificacion();
-              servNoti.notificarToast("error","Complete todos los campos")
+              notificarToast("error","Complete todos los campos")
               
             }else{
               let datosUsuario = {

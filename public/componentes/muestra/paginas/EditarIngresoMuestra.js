@@ -1,4 +1,4 @@
-import ServicioNotificacion from '../../utilidades/Notificacion.js';
+import {notificarToast} from '../../utilidades/Notificacion.js';
 import UiIngMuestra from '../ui/IngresoMuestra.ui.js';
 export function EditarIngresoMuestra(mta) {
   console.log(mta)
@@ -37,8 +37,7 @@ export function EditarIngresoMuestra(mta) {
           const ph= document.getElementById('e-ph-mta').value;
           const cl = document.getElementById('e-cl-mta').value;
           if(pMuestra===''||ph===''|| cl===''){
-            const sN = new ServicioNotificacion();
-            sN.notificarToast("error","Complete todos los campos")
+            notificarToast("error","Complete todos los campos")
           }else{
             let muestra={
               id:idm,

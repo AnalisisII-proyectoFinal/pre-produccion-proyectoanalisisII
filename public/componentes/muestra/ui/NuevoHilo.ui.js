@@ -1,15 +1,15 @@
 import ServicioMuestra from '../servicio/Muestra.ser.js';
-import Notificacion from '../../utilidades/Notificacion.js';
+import {notificarToast} from "../../utilidades/Notificacion.js";
 const serNuevoHilo = new ServicioMuestra();
-const serNotificacionNH= new Notificacion();
 
 class UiNuevoHilo{
     nuevoHilo(datosnhilo){
         serNuevoHilo.hacerPeticion('/nuevohilo',datosnhilo,'POST').then(r=>{
             this.asignarTanquesOpc();
-            serNotificacionNH.agregarNotificacion('exito',r.body.msg);   
+            notificarToast("success",r.body.msg)
         }).catch(err=>{
             console.log(err)
+            notificarToast("error","Al crear Hilo")
         })
     }
 
@@ -18,7 +18,7 @@ class UiNuevoHilo{
             this.agregarHilo(datos.body);
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast("error","Al cargar Datos")
+            notificarToast("error","Al cargar Datos")
         })
     }
 
@@ -42,6 +42,7 @@ class UiNuevoHilo{
             this.dibujarTanques(datos.body)
         }).catch(err=>{
             console.log(err)
+            notificarToast("error","Al cargar Datos")
         })
     }
 
@@ -66,17 +67,20 @@ class UiNuevoHilo{
     asignarTanque(idt){
         serNuevoHilo.hacerPeticion('/agregartanque',{idtanque:idt},'POST').then(r=>{
             this.activarTanque(idt)
+            notificarToast("success",r.body.msg)
             serNotificacionNH.agregarNotificacion('exito',r.body.msg)
         }).catch(err=>{
             console.log(err)
+            notificarToast("error","Al cargar Datos")
         })
     }
     asignarTanques(){
         serNuevoHilo.hacerPeticion('/agregartanques',{},'POST').then(r=>{
             this.activarTanques()
-            serNotificacionNH.agregarNotificacion('exito',r.body.msg)
+            notificarToast("error",r.body.msg)
         }).catch(err=>{
             console.log(err)
+            notificarToast("error","Al cargar Datos")
         })
     }
 

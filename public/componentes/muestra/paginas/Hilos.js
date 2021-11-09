@@ -1,7 +1,7 @@
 "use strict";
 //@ts-check
 import{validarInput}from '../../utilidades/ValidarFormulario.js';
-import ServicioNotificacion from '../../utilidades/Notificacion.js';
+import {notificarToast} from '../../utilidades/Notificacion.js';
 import UiHilo from '../ui/Hilo.ui.js'
 /**
  * creacion de las opciones que tendra el modulo dashboard
@@ -72,8 +72,7 @@ export function Hilos(){
               buscarHilo.obtnerHilosXFecha(y,m);
               
             }else{
-              const llenarInput = new ServicioNotificacion();
-              llenarInput.notificarToast('error','lleno todos datos')
+              notificarToast('error','lleno todos datos')
             }
           })
 
@@ -82,7 +81,6 @@ export function Hilos(){
             if(e.target.classList.contains('detalle')){
               const detalles = new UiHilo();
               detalles.obtenerMuestrasxhilo(e.target.getAttribute('_id'));
-              //console.log(e.target.getAttribute('_id'))
               
             }else if(e.target.classList.contains('estado')){
               console.log(e.target.getAttribute('_id'))

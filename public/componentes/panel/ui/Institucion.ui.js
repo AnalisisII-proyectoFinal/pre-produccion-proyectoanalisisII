@@ -1,8 +1,7 @@
 import ServicioPanel from '../servicio/Panel.ser.js';
-import ServicioNotificacion from '../../utilidades/Notificacion.js';
+import {notificarToast}from '../../utilidades/Notificacion.js';
 import UiAplicacion from '../../aplicacion/ui/Aplicacion.ui.js';
 const servInstitucion = new ServicioPanel();
-const servNotificar = new ServicioNotificacion();
 
 class UiInstitucion{
   editarDatosInst(){
@@ -23,19 +22,19 @@ class UiInstitucion{
             $labInsFecha.innerHTML=`Utlima actualizacion: ${datosIns.fecha}`;
       }).catch(err=>{
           console.log(err)
+          notificarToast("error","Al cargar Datos !")
       })
     }
 
     
     actualizarDatosInstitucion(datosInst){
       servInstitucion.hacerPeticion('/institucion',datosInst,'PUT').then(r=>{
-        console.log(r.body.msg);
         const actualizarDatosInst=new UiAplicacion();
         actualizarDatosInst.obtenerDatosEncabezado();
-        servNotificar.notificarToast("success",r.body.msg);
+        notificarToast("success",r.body.msg);
       }).catch(err=>{
         console.log(err)
-        servNotificar.notificarToast("error","No se pudo actualizar");
+        notificarToast("error","Al Actuaizar el registro");
       })  
     }
 
@@ -51,16 +50,16 @@ class UiInstitucion{
           $labInsFecha.innerHTML=`Utlima actualizacion: ${datosIns.fecha}`;
       }).catch(err=>{
           console.log(err)
+          notificarToast("error","Al cargar Datos !")
       })
     }
 
     actulizarMision(mision){
       servInstitucion.hacerPeticion('/mision',mision,'PUT').then(r=>{
-        console.log(r.body.msg);
-        servNotificar.notificarToast("success",r.body.msg);
+        notificarToast("success",r.body.msg);
       }).catch(err=>{
         console.log(err)
-        servNotificar.notificarToast("error","No se pudo actualizar");
+        notificarToast("error","Al actualizar Mision");
       }) 
     }
 
@@ -82,11 +81,10 @@ class UiInstitucion{
 
     actulizarVision(vision){
       servInstitucion.hacerPeticion('/vision',vision,'PUT').then(r=>{
-        console.log(r.body.msg);
-        servNotificar.notificarToast("success",r.body.msg);
+        notificarToast("success",r.body.msg);
       }).catch(err=>{
         console.log(err)
-        servNotificar.notificarToast("error","No se pudo actualizar");
+        notificarToast("error","Al Actualizar Vision");
       }) 
     }
     
@@ -116,16 +114,16 @@ class UiInstitucion{
           $verlogoSiv.setAttribute('src',`${datosSalud.lsiv}`)
           }).catch(err=>{
               console.log(err)
+              notificarToast("error","Al actualizar datos")
           })
     }
 
     actulizarDatosSalud(datosSalud){
       servInstitucion.hacerPeticion('/datoscentrosalud',datosSalud,'PUT').then(r=>{
-          console.log(r.body.msg);
-          servNotificar.notificarToast("success",r.body.msg);
+          notificarToast("success",r.body.msg);
         }).catch(err=>{
           console.log(err)
-          servNotificar.notificarToast("error","No se pudo actualizar");
+          notificarToast("error","Al actualizar Datos");
         })
   }
 

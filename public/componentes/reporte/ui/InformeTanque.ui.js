@@ -1,5 +1,5 @@
 import ServicioReportes from "../servicios/Reporte.serv.js";
-import ServicioNotificacion from "../../utilidades/Notificacion.js";
+import {notificarToast}from "../../utilidades/Notificacion.js";
 import {ventanModal} from "../../utilidades/VentanaModal.js";
 import {InformeTanque}from "../paginas/InformeTanque.js";
 const servRep = new ServicioReportes();
@@ -11,7 +11,7 @@ class UiInformeTanque{
             this.mostrarTanques(datos.body)
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast("error","al cargar los datos")
+            notificarToast("error","Al cargar los datos")
         })
     }
     obtenerTanque(idt){
@@ -20,7 +20,7 @@ class UiInformeTanque{
             this.informeTanque(dato.body[0])
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast("error","al cargar los datos")
+            notificarToast("error","Al cargar los datos")
         })
     }
     mostrarTanques(tanques){

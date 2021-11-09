@@ -33,7 +33,7 @@ import {Reporte} from './reporte/Reporte.js';
 import {Usuario} from './usuario/Usuario.js';
 import {Panel} from './panel/Panel.js';
 import {Ayuda} from './ayuda/Ayuda.js';
-import ServicioNotificacion from './utilidades/Notificacion.js';
+import {notificarToast} from './utilidades/Notificacion.js';
 import UiAplicacion from './aplicacion/ui/Aplicacion.ui.js';
 import {DatosUsuario}from "./utilidades/DatosUsuario.js";
 
@@ -84,7 +84,7 @@ export function Router(){
           uIApp.mostrarPerfil();
         }else{
           location.href='#/';
-          serNoti.notificarToast("warning","Necesita Autenticacion")
+          notificarToast("warning","Necesita Autenticacion")
         }
         break;
       case '#/app/muestra':
@@ -94,7 +94,7 @@ export function Router(){
           uIApp.mostrarPerfil();
         }else{
           location.href='#/';
-          serNoti.notificarToast("warning","Necesita Autenticacion")
+          notificarToast("warning","Necesita Autenticacion")
         }
         break;
       case '#/app/dashboard':
@@ -105,7 +105,7 @@ export function Router(){
         }
         else{
           location.href='#/';
-          serNoti.notificarToast("warning","Necesita Autenticacion")
+          notificarToast("warning","Necesita Autenticacion")
         }
         break;
       case '#/app/reporte':
@@ -116,17 +116,17 @@ export function Router(){
         }
         else{
           location.href='#/';
-          serNoti.notificarToast("warning","Necesita Autenticacion")
+          notificarToast("warning","Necesita Autenticacion")
         }
         break;
       case '#/app/usuario':
         if ($rol === 0) {
           location.href='#/';
-          serNoti.notificarToast("warning","Necesita Autenticacion")
+          notificarToast("warning","Necesita Autenticacion")
           
         }else if ($rol > 0 && $rol != 3) {
           location.href='#/app/dashboard';
-          serNoti.notificarToast("info","No tiene autorizacion")
+          notificarToast("info","No tiene autorizacion")
         }else{
           $contenedor.appendChild(MenuApp(M_USUARIO));
           $contenedor.appendChild(Usuario());
@@ -137,10 +137,10 @@ export function Router(){
       case '#/app/panel':
         if ($rol === 0) {
           location.href='#/';
-          serNoti.notificarToast("warning","Necesita Autenticacion")
+          notificarToast("warning","Necesita Autenticacion")
         }else if ($rol > 0 && $rol != 3) {
           location.href='#/app/dashboard';
-          serNoti.notificarToast("info","No tiene autorizacion")  
+          notificarToast("info","No tiene autorizacion")  
         }else{
           $contenedor.appendChild(MenuApp(M_PANEL));
           $contenedor.appendChild(Panel());
@@ -155,7 +155,7 @@ export function Router(){
         }
         else{
           location.href='#/';
-          serNoti.notificarToast("warning","Necesita Autenticacion")
+          notificarToast("warning","Necesita Autenticacion")
         }
         break;
       default:

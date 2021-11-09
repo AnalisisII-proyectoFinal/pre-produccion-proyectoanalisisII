@@ -3,7 +3,7 @@
 import{validarInput}from '../../utilidades/ValidarFormulario.js'
 import {subirImagen}from "../../utilidades/SubirImagen.js";
 import UiMantenimiento from '../ui/Mantenimiento.ui.js';
-import ServicioNotificacion from '../../utilidades/Notificacion.js';
+import {notificarToast} from '../../utilidades/Notificacion.js';
 /**
  * creacion de las opciones que tendra el modulo dashboard
  * @returns {void} historial del modulo y funcionalidades
@@ -78,7 +78,6 @@ export function Mantenimiento(){
         `;
         function initMantenimiento(){
             const uiMant = new UiMantenimiento();
-            const servNoti = new ServicioNotificacion();
             uiMant.obtnerMantenimientos();
             uiMant.obtenerTanques();
 
@@ -122,7 +121,7 @@ export function Mantenimiento(){
               console.log(datosMant);
               uiMant.nuevoMantenimiento(datosMant);
             }else{
-              servNoti.notificarToast('error',"llene todos los campos")
+             notificarToast('error',"Llene todos los campos")
             }
           })
           

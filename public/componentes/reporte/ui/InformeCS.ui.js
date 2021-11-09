@@ -1,5 +1,5 @@
 import ServicioReporte from "../servicios/Reporte.serv.js";
-import ServicioNotificacion from "../../utilidades/Notificacion.js";
+import {notificarToast} from "../../utilidades/Notificacion.js";
 import {InformeCS}from "../paginas/InformeCS.js";
 import {ventanModal}from "../../utilidades/VentanaModal.js";
 const servReporte = new ServicioReporte();
@@ -10,7 +10,7 @@ class UiInformeCS{
             this.previuInforme(datos.body.m,datos.body.d)
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast("error","al cargar los datos")
+            notificarToast("error","Al cargar los datos")
         })
     }
     previuInforme(muestras,datos){
@@ -22,7 +22,7 @@ class UiInformeCS{
             this.mostrarHilos(datos.body)
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast("error","al cargar los datos")
+            notificarToast("error","Al cargar los datos")
         })
     }
 
@@ -31,7 +31,7 @@ class UiInformeCS{
             this.mostrarHilos(datos.body);
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast("error","al cargar los datos")
+            notificarToast("error","Al cargar los datos")
         })
     }
     mostrarHilos(hilos){

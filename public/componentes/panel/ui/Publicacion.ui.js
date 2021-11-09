@@ -1,7 +1,7 @@
 import {ventanModal} from '../../utilidades/VentanaModal.js';
 import{EditarPublicacion} from '../paginas/EditarPublicacion.js';
 import ServicioPanel from '../servicio/Panel.ser.js';
-import ServicioNotificacion from '../../utilidades/Notificacion.js';
+import {notificarToast} from '../../utilidades/Notificacion.js';
 const servPublicacion = new ServicioPanel();
 const servNoti= new ServicioNotificacion();
 
@@ -11,7 +11,8 @@ class UiPublicacion {
         servPublicacion.hacerPeticion('/publicacion',{},'GET').then(datos=>{
             this.mostrarPublicaciones(datos.body)
           }).catch(err=>{
-            console.log(err)
+              notificarToast("error","Al cargar Datos!")
+              console.log(err)
           })
     }
 
@@ -44,9 +45,9 @@ class UiPublicacion {
     nuevaPublicacion(datosPublic){
         servPublicacion.hacerPeticion('/publicacion',datosPublic,'POST').then( r=>{
             this.obtnerPublicaciones();
-            servNoti.notificarToast("success",r.body.msg);
+            notificarToast("success",r.body.msg);
         }).catch(err=>{
-            servNoti.notificarToast("error","No se pudo crar la publicacion");
+            notificarToast("error","Al crear publicación");
             console.log(err)
         })
     }
@@ -58,10 +59,10 @@ class UiPublicacion {
     actualizarPublicacion(datosPublic){
         servPublicacion.hacerPeticion('/actpublicacion',datosPublic,'PUT').then(r=>{
             this.obtnerPublicaciones();
-            servNoti.notificarToast("success",r.body.msg)
+            notificarToast("success",r.body.msg)
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast("error","no se pudo actualizar")
+            notificarToast("error","Al actualizar Datos !")
         })
 
     }
@@ -72,13 +73,13 @@ class UiPublicacion {
         if (res) {
             servPublicacion.hacerPeticion('/eliminarpublic',{id:idpub},'PUT').then(r=>{
                 this.obtnerPublicaciones();
-                servNoti.notificarToast("success",r.body.msg)
+                notificarToast("success",r.body.msg)
                 }).catch(err=>{
                 console.log(err)
-                servNoti.notificarToast("error","no se pudo eliminar")
+                notificarToast("error","Al eliminar registro.!")
             })  
         }else{
-            servNoti.notificarToast("info","Eliminacion cancelado")
+            notificarToast("info","Eliminacion cancelado")
         }  
     }
 

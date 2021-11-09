@@ -1,5 +1,5 @@
 import UiListarUsuario from "../ui/ListarUsuarios.ui.js";
-import ServicioNotificacion from "../../utilidades/Notificacion.js";
+import {notificarToast} from "../../utilidades/Notificacion.js";
 function convertirFecha(f) {
   const fe = new Date(f)
   let y=fe.getFullYear();
@@ -70,8 +70,7 @@ export function EditarUsuario(em) {
         const ca = document.getElementById('e-e-ca').value;
 
         if (pn===''||sn===''||pa===''||sa===''||fn===''||dpi===''||ge===''||te===''||ce===''||di===''||ca==='') {
-          const noti=new ServicioNotificacion();
-          noti.notificarToast("error","Complete todos los campos")
+          notificarToast("error","Complete todos los campos")
         }else{
           let datosEmp={
             ide:ide,

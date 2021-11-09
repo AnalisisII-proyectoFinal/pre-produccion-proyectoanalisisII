@@ -2,7 +2,7 @@
 //@ts-check
 import{validarInput}from '../../utilidades/ValidarFormulario.js'
 import UiNuevoHilo from '../ui/NuevoHilo.ui.js';
-import ServicioNotificacion from '../../utilidades/Notificacion.js';
+import {notificarToast} from '../../utilidades/Notificacion.js';
 import {DatosUsuario}from '../../utilidades/DatosUsuario.js'
 /**
  * creacion de las opciones que tendra el modulo dashboard
@@ -50,15 +50,14 @@ export function NuevoHilo(date){
 </section> 
         `;
         function initNuevoHilo(){
-          const serNoti = new ServicioNotificacion();
           document.getElementById('nh-n-h').addEventListener('click',(e)=>{
             e.preventDefault();
             let progresoHilo = document.getElementById('n-p-hilo-i').value;
-            if(progresoHilo > 98){
+            if(progresoHilo > 99){
               const fechaF=document.getElementById('nh-f-fin').value;
               const descrip= document.getElementById('nh-des').value;
               if (fechaF===''||descrip==='') {
-                serNoti.notificarToast('error',"Complete todos los campos")
+                notificarToast("error","Complete todos los campos")
               }else{
                 let datosNhilo={
                   fechafin:fechaF,
@@ -70,7 +69,7 @@ export function NuevoHilo(date){
               }
               
             }else{
-              serNoti.notificarToast('warning',"No es posible crear el hilo, Complete las muestras")
+              notificarToast("warning","No es posible crear el hilo, compete las muestras");
             }
             
           })

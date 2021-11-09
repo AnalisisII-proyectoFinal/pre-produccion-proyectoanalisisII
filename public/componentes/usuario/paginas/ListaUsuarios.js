@@ -6,7 +6,7 @@
  */
  
  import UiListarUsuario from '../ui/ListarUsuarios.ui.js';
- import ServicioNotificacion from '../../utilidades/Notificacion.js';
+ import {notificarToast} from '../../utilidades/Notificacion.js';
 
 export function ListaUsuarios(){
     const $listausuarios = document.createElement('div');
@@ -57,8 +57,7 @@ export function ListaUsuarios(){
               if (resConf) {
                 uiListUsuario.eliminarUsuario(elid)
               }else{
-                const noti = new ServicioNotificacion();
-                noti.notificarToast("info","Operacion Cancelado")
+                notificarToast("info","Operacion Cancelado")
               } 
             }
           })

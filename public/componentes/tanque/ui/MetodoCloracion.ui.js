@@ -1,5 +1,5 @@
 import ServicioTanque from "../servicio/Tanque.ser.js";
-import ServicioNotificacion from "../../utilidades/Notificacion.js";
+import {notificarToast} from "../../utilidades/Notificacion.js";
 import {EditarMetodoCloracion} from "../paginas/EditarMetodoCloracion.js";
 import {ventanModal} from "../../utilidades/VentanaModal.js";
 const servNoti = new ServicioNotificacion();
@@ -11,7 +11,7 @@ class UiMetodoCloracion{
             this.listarMetodosCloracion(datos.body)
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast("error","al cargar datos");
+            notificarToast("error","Al cargar datos");
         })
     }
     obtenerMetodoCloracion(idmc){
@@ -19,13 +19,12 @@ class UiMetodoCloracion{
             this.editarMetodoCloracion(dato.body)
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast("error","al cargar datos");
+            notificarToast("error","Al cargar datos");
         })
     }
     listarMetodosCloracion(metodos){
         const $tblmetdoscl = document.getElementById('lista-metodos');
         $tblmetdoscl.innerHTML='';
-        console.log(metodos.length)
         if (metodos.length > 0) {
             let $fragment= document.createDocumentFragment();
             let $n=1;
@@ -62,10 +61,10 @@ class UiMetodoCloracion{
         console.log(metodo)
         servTanq.hacerPeticion('/metodocl',metodo,'POST').then(r=>{
             this.obtenerMetodosCloracion();
-            servNoti.notificarToast('success',r.body.msg);
+            notificarToast('success',r.body.msg);
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast('error','Al insertar datos')
+            notificarToast('error','Al insertar datos')
         })
     }
 
@@ -73,20 +72,20 @@ class UiMetodoCloracion{
         servTanq.hacerPeticion('/metodocl',metodo,'PUT').then(r=>{
             this.quitarModal();
             this.obtenerMetodosCloracion();
-            servNoti.notificarToast("success","actualizado");
+            notificarToast("success","Metodo actualizado");
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast("error","al cargar datos");
+            notificarToast("error","Al cargar datos");
         })
     }
     eliminarMetodoCloracion(idmc){
         servTanq.hacerPeticion(`/metodocl/${idmc}`,{},'DELETE').then(r=>{
             console.log(r)
             this.obtenerMetodosCloracion();
-            servNoti.notificarToast("success",r.body.msg)
+            notificarToast("success",r.body.msg)
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast("error","Al cargar datos")
+            notificarToast("error","Al cargar datos")
         })
     }
     quitarModal(){

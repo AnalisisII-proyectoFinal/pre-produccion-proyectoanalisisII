@@ -7,7 +7,7 @@
  * @copyright - ksksue
  * @version 1.0
  */
-import ServicioNotificacion from "../../utilidades/Notificacion.js";
+import {notificarToast} from "../../utilidades/Notificacion.js";
 import ServicioTanque from "../servicio/Tanque.ser.js";
 import {EditarTanque} from "../paginas/EditarTanque.js";
 import { ventanModal } from "../../utilidades/VentanaModal.js";
@@ -17,22 +17,20 @@ const servNoti = new ServicioNotificacion();
 class UiTanque {
     obtenerTanques(){
         servTanque.hacerPeticion('/tanques',{},'GET').then(datos=>{
-            console.log(datos.body)
              this.listarTanques(datos.body);
         }).catch(err =>{
             console.log(err)
-            servNoti.notificarToast("error","al cargar dato");
+            notificarToast("error","Al cargar datos");
         })
     }
 
     obtenerTanque(idt){
         console.log(idt)
         servTanque.hacerPeticion(`/tanques/${idt}`,{},'GET').then(dato=>{
-            console.log(dato.body[0])
             this.editarTanque(dato.body[0]);
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast("error","al cargar dato")
+            notificarToast("error","Al cargar datos")
         })
     }
 
@@ -71,7 +69,6 @@ class UiTanque {
 
     obtenerMetodoClorificacion(edit){
         servTanque.hacerPeticion('/metodocl',{},'GET').then(datos=>{
-            console.log(datos.body);
             if (edit!== 1) {
                 this.listarMetodoCloro(datos.body)
             }else{
@@ -79,7 +76,7 @@ class UiTanque {
             }
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast("error","al cargar los datos");
+            notificarToast("error","Al cargar los datos");
         })
     }
     listarMetodoCloro(metodos){
@@ -113,10 +110,10 @@ class UiTanque {
     nuevoTanque(tanque){
         servTanque.hacerPeticion('/tanque',tanque,'POST').then(r=>{
             this.obtenerTanques();
-            servNoti.notificarToast("success",r.body.msg);
+            notificarToast("success",r.body.msg);
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast("error","al cargar los datos");
+            notificarToast("error","Al cargar los datos");
         })
     }
 
@@ -129,20 +126,20 @@ class UiTanque {
         servTanque.hacerPeticion('/tanque',tanque,'PUT').then(r=>{
             this.quitarModal();
             this.obtenerTanques();
-            servNoti.notificarToast("success",r.body.msg);
+            notificarToast("success",r.body.msg);
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast("error","al cargar datos");
+            notificarToast("error","Al cargar datos");
         })
     }
     eliminarTanque(idt){
         servTanque.hacerPeticion(`/tanque/${idt}`,{},'DELETE').then(r=>{
             console.log(r.msg)
             this.obtenerTanques();
-            servNoti.notificarToast("success",r.body.msg)
+            notificarToast("success",r.body.msg)
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast("error","no se pudo eliminar el registro..!")
+            notificarToast("error","Al eliminar el registro")
         })
     }
     

@@ -1,3 +1,7 @@
+export function notificarToast(tipo,mens){
+    toastr[tipo](mens)
+}
+/*
 class ServicioNotificacion{
     notificarToast(tipo,mensaje){
         toastr[tipo](mensaje)
@@ -5,4 +9,4 @@ class ServicioNotificacion{
 
 }
 
-export default ServicioNotificacion;
+export default ServicioNotificacion;*/

@@ -1,9 +1,8 @@
 import ServicioMuestra from '../servicio/Muestra.ser.js';
-import ServicioNotificacion from "../../utilidades/Notificacion.js";
+import {notificarToast}from "../../utilidades/Notificacion.js";
 import {EditarIngresoMuestra} from '../paginas/EditarIngresoMuestra.js';
 import {ventanModal} from '../../utilidades/VentanaModal.js';
 const serIngMuestra = new ServicioMuestra();
-const servNoti = new ServicioNotificacion();
 
 class UiIngMuestra{
 
@@ -12,7 +11,7 @@ class UiIngMuestra{
             this.listarMuestras(datos.body)
         }).catch(errr=>{
             console.log(errr)
-            servNoti.notificarToast("error","Al cargar Datos")
+            notificarToast("error","Al cargar Datos")
         })
     }
 
@@ -21,7 +20,7 @@ class UiIngMuestra{
             this.agregarHilo(datos.body);
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast("error","Al cargar Datos")
+            notificarToast("error","Al cargar Datos")
         })
     }
 
@@ -83,7 +82,7 @@ class UiIngMuestra{
             this.llenarOpcTanques(datos.body)
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast("error","Al cargar Datos Tanque")
+            notificarToast("error","Al cargar Datos Tanque")
         })
     }
 
@@ -108,7 +107,7 @@ class UiIngMuestra{
             this.llenarSelectMuestras(datos.body)
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast("error","Al cargar Datos")
+            notificarToast("error","Al cargar Datos")
         })
     }
 
@@ -140,10 +139,10 @@ class UiIngMuestra{
         serIngMuestra.hacerPeticion('/muestra',muestra,'POST').then(r=>{
             this.obtnerHilo();
             this.obtenerMuestras();
-            servNoti.notificarToast('success',r.body.msg);
+            notificarToast('success',r.body.msg);
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast('error',"Al cargar los datos");
+            notificarToast('error',"Al cargar los datos");
         })
     }
 
@@ -153,7 +152,7 @@ class UiIngMuestra{
             this.editarMuestra(dato.body[0])
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast('error',"Al cargar los datos");
+            notificarToast('error',"Al cargar los datos");
         })
 
     }
@@ -166,10 +165,10 @@ class UiIngMuestra{
         serIngMuestra.hacerPeticion('/muestra',muestra,'PUT').then(res=>{
             this.quitarModal();
             this.obtenerMuestras();
-            servNoti.notificarToast("success",res.body.msg)
+            notificarToast("success",res.body.msg)
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast("error","Al cargar los datos");
+            notificarToast("error","Al cargar los datos");
         })
 
     }

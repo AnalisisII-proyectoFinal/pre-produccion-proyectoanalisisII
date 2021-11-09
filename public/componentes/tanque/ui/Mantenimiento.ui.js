@@ -1,9 +1,8 @@
 import ServicioTanque from "../servicio/Tanque.ser.js";
-import ServicioNotificacion from "../../utilidades/Notificacion.js";
+import {notificarToast} from "../../utilidades/Notificacion.js";
 import {ventanModal} from "../../utilidades/VentanaModal.js";
 import {EditarMantenimiento}from "../paginas/EditarMantenimiento.js";
 const servTanque = new ServicioTanque();
-const servNoti = new ServicioNotificacion();
 
 class UiMantenimiento{
     obtnerMantenimientos(){
@@ -11,7 +10,7 @@ class UiMantenimiento{
             this.listarMantenimientos(datos.body)
         }).catch(err=>{
             console.log(err);
-            servNoti.notificarToast('error',"al cargar los datos");
+            notificarToast('error',"Al cargar los datos");
         })
 
     }
@@ -21,7 +20,7 @@ class UiMantenimiento{
             this.listarTanques(datos.body)
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast("error","al cargar los datos");
+            notificarToast("error","Al cargar los datos");
         })
     }
 
@@ -76,10 +75,10 @@ class UiMantenimiento{
     nuevoMantenimiento(mantenimento){
         servTanque.hacerPeticion('/mantenimiento',mantenimento,'POST').then(r=>{
             this.obtnerMantenimientos();
-            servNoti.notificarToast("success",r.body.msg);
+            notificarToast("success",r.body.msg);
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast("error"," al insertar dato");
+            notificarToast("error","Al insertar dato");
         })
 
     }
@@ -89,7 +88,7 @@ class UiMantenimiento{
             ventanModal(EditarMantenimiento(dato.body[0]))
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast("error","al cargar datos");
+            notificarToast("error","Al cargar datos");
         })
 
     }
@@ -97,19 +96,19 @@ class UiMantenimiento{
         servTanque.hacerPeticion('/mantenimiento',mantenimito,'PUT').then(datos=>{
             this.quitarModal();
             this.obtnerMantenimientos();
-            servNoti.notificarToast("success","actualizado");
+            notificarToast("success","Mantenimiento actulizado");
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast("error","error al cargar")
+            notificarToast("error","Al actualizar el registro")
         })
     }
     eliminarMantenimiento(idm){
         servTanque.hacerPeticion(`/mantenimiento/${idm}`,{},'DELETE').then(r=>{
             this.obtnerMantenimientos();
-            servNoti.notificarToast("success",r.body.msg)
+            notificarToast("success",r.body.msg)
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast("error","al cargar datos")
+            notificarToast("error","Al eliminar el registro.!")
         })
     }
     limpiarFormulario(){

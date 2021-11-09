@@ -1,5 +1,5 @@
 import UiMetodoCloracion from "../ui/MetodoCloracion.ui.js";
-import ServicioNotificacion from "../../utilidades/Notificacion.js";
+import {notificarToast} from "../../utilidades/Notificacion.js";
 export function EditarMetodoCloracion(met) {
     const $editarmetodocloracion = document.createElement('div');
     $editarmetodocloracion.classList.add('editar-metodoclora');
@@ -33,8 +33,7 @@ export function EditarMetodoCloracion(met) {
           const actMC= new UiMetodoCloracion();
          actMC.actualizarMetodoCloracion(datosMetodoCloro)
         }else{
-          const noti= new ServicioNotificacion();
-          noti.notificarToast('error','Complete los campos')
+          notificarToast('error','Complete todos los campos')
         }
 
       })

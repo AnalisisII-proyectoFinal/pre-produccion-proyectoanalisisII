@@ -1,10 +1,9 @@
 import ServicioAplicacion from "../servicio/Aplicacion.ser.js"
-import ServicioNotificacion from '../../utilidades/Notificacion.js';
+import {notificarToast} from '../../utilidades/Notificacion.js';
 import {ventanModal} from '../../utilidades/VentanaModal.js';
 import ServicioAuth from "../servicio/Auth.ser.js";
 import { EditarPerfil } from "../paginas/Perfil.js";
 const servAplicacion = new ServicioAplicacion();
-const serNoti = new ServicioNotificacion();
 const servAuth = new ServicioAuth();
 
 class UiAplicacion{
@@ -24,14 +23,14 @@ class UiAplicacion{
     autenticarUsuario(datosUsuario){
         servAuth.hacerPeticion('/autenticarusuario',datosUsuario,'POST').then(res=>{
             if (res.body.t === 0) {
-               serNoti.notificarToast('error',res.body.msg)
+                notificarToast("error",res.body.msg)
             }else{
               this.ingresarSistema(res.body)
-              serNoti.notificarToast('success',"Bienvenido");
+              notificarToast('success',"Bienvenido");
             }              
           }).catch(err=>{
             console.log(err)
-            serNoti.notificarToast('warning',"Al cargar los datos");
+            notificarToast('warning',"Al cargar los datos");
           })
     }
 
@@ -48,10 +47,10 @@ class UiAplicacion{
         servAplicacion.hacerPeticion(`/infousuario/${idu}`,{},'GET').then( datos=>{
             localStorage.setItem('nombre',datos.body[0].nombre);
             localStorage.setItem('avatar',datos.body[0].avatar);
-            serNoti.notificarToast("success","Se cargaron datos")
+            notificarToast("success","Se cargaron datos")
          }).catch(err=>{
-           console.log(err)
-           serNoti.notificarToast('warning',"Al cargar los datos")
+            console.log(err)
+            notificarToast('warning',"Al cargar los datos")
          })
          this.actualizarPerfil();
     }
@@ -61,7 +60,7 @@ class UiAplicacion{
             ventanModal(EditarPerfil(datos.body))
         }).catch(err=>{
             console.log(err)
-            serNoti.notificarToast("error","No se pudo cargar los datos")
+            notificarToast("error","No se pudo cargar los datos")
         })
 
     }
@@ -83,20 +82,20 @@ class UiAplicacion{
         const datosUs = localStorage.getItem('dataUser');
         const idu=JSON.parse(datosUs).id;
         servAplicacion.hacerPeticion('/actualizarcontrasena',{id:idu,pass:pass},'PUT').then(r=>{
-            serNoti.notificarToast('success',r.body.msg)
+            notificarToast('success',r.body.msg)
         }).catch(err=>{
             console.log(err)
-            serNoti.notificarToast('error','No se pudo actualizar');
+            notificarToast('error','No se pudo actualizar');
         })
     }
     cambiarPin(pin){
         const datosUs = localStorage.getItem('dataUser');
         const idu=JSON.parse(datosUs).id;
         servAplicacion.hacerPeticion(`/actualizarpin/${idu}`,{pin:pin},'PUT').then(r=>{
-            serNoti.notificarToast('success',r.body.msg)
+            notificarToast('success',r.body.msg)
         }).catch(err=>{
             console.log(err)
-            serNoti.notificarToast('error','No se pudo actualizar');
+            notificarToast('error','No se pudo actualizar');
         })
     }
     actualizarDatosUsuario(datos){
@@ -104,10 +103,10 @@ class UiAplicacion{
         const idu=JSON.parse(datosUs).id;
         servAplicacion.hacerPeticion(`/actualizardatosusuario/${idu}`,datos,'PUT').then(r=>{
             this.quitarModal();
-            serNoti.notificarToast('success',r.body.msg)
+            notificarToast('success',r.body.msg)
         }).catch(err=>{
             console.log(err)
-            serNoti.notificarToast('error','No se pudo actualizar');
+            notificarToast('error','No se pudo actualizar');
         })
     }
     quitarModal(){

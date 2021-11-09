@@ -1,5 +1,5 @@
 import UiAplicacion from "../ui/Aplicacion.ui.js";
-import ServicioNotificacion from "../../utilidades/Notificacion.js";
+import {notificarToast} from "../../utilidades/Notificacion.js";
 export function Login() {
     const $login = document.createElement('section');
     $login.classList.add('contenedor-login')
@@ -25,8 +25,7 @@ export function Login() {
             const lUser = document.getElementById('l-user').value;
             const lPass = document.getElementById('l-pass').value;
             if (lUser==='' || lPass === '') {
-              const notificar = new ServicioNotificacion();
-              notificar.notificarToast('error','Llenar todos los campos')
+              notificarToast('error','Llenar todos los campos')
             }else{
               let dataAuth={
                 user:lUser,

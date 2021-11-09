@@ -1,9 +1,8 @@
 import ServicioMuestra from '../servicio/Muestra.ser.js';
-import ServicioNotificacion from "../../utilidades/Notificacion.js";
+import {notificarToast} from "../../utilidades/Notificacion.js";
 import {ventanModal} from "../../utilidades/VentanaModal.js";
 import {VerMuestrasHilos} from "../paginas/VerMuestrasHilo.js";
 const serHilo = new ServicioMuestra();
-const servNoti = new ServicioNotificacion();
 
 class UiHilo{
 
@@ -12,7 +11,7 @@ class UiHilo{
             this.listarHilos(datos.body)
         }).catch(err=>{
             console.log(err);
-            servNoti.notificarToast('error','No se pudo cargar los datos');
+            notificarToast('error','No se pudo cargar los datos');
         })
 
     }
@@ -21,7 +20,7 @@ class UiHilo{
             this.listarHilos(datos.body);
         }).catch(err=>{
             console.log(err);
-            servNoti.notificarToast('error','No se pudo cargar los datos');
+            notificarToast('error','No se pudo cargar los datos');
         })
     }
     listarHilos(hilos){
@@ -59,7 +58,7 @@ class UiHilo{
             this.detallesHilo(datos.body)
         }).catch(err=>{
             console.log(err);
-            servNoti.notificarToast('error','No se pudo cargar los datos');
+            notificarToast('error','No se pudo cargar los datos');
         })
     }
 

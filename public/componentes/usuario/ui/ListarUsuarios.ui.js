@@ -1,5 +1,5 @@
 import ServicioUsuario from '../servicio/Usuario.ser.js';
-import ServicioNotificacion from "../../utilidades/Notificacion.js";
+import {notificarToast} from "../../utilidades/Notificacion.js";
 import {ventanModal} from "../../utilidades/VentanaModal.js";
 import {VerDetalles} from "../paginas/VerDetalles.js";
 import {EditarUsuario} from "../paginas/EditarUsuario.js";
@@ -12,7 +12,7 @@ class UiListarUsuario{
             this.mostrarUsuarios(datos.body)
         }).catch(error=>{
             console.log(error)
-            servNoti.notificarToast("error","Al cargar los datos")
+            notificarToast("error","Al cargar los datos")
         })
     }
     obtenerDatosUsuario(idu,edit){
@@ -25,7 +25,7 @@ class UiListarUsuario{
             
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast("error","al cargar datos")
+            notificarToast("error","Al cargar datos")
         })
     }
     mostrarUsuarios(usuarios){
@@ -60,10 +60,10 @@ class UiListarUsuario{
     eliminarUsuario(idu){
        servUsuario.hacerPeticion(`/usuario/${idu}`,{},'DELETE').then(r=>{
            this.obtenerDatosUsuarios();
-            servNoti.notificarToast("success",r.body.msg)
+           notificarToast("success",r.body.msg)
        }).catch(err=>{
            console.log(err)
-           servNoti.notificarToast("error","al cargar datos");
+           notificarToast("error","Al cargar datos");
        }) 
 
     }
@@ -74,10 +74,10 @@ class UiListarUsuario{
         servUsuario.hacerPeticion('/usuario',empleado,'PUT').then(r=>{
             this.quitarModal();
             this.obtenerDatosUsuarios();
-            servNoti.notificarToast('success',r.body.msg)
+            notificarToast('success',r.body.msg)
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast('error','no se puedo actuaizar')
+            notificarToast('error','Al actualizar el registro')
         })
     }
     quitarModal(){

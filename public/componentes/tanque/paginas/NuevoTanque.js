@@ -6,7 +6,7 @@
 //import{ventanModal}from '../../utilidades/VentanaModal.js';
 import UiTanque from "../ui/NuevoTanque.ui.js";
 import {subirImagen} from "../../utilidades/SubirImagen.js";
-import ServicioNotificacion from "../../utilidades/Notificacion.js";
+import {notificarToast} from "../../utilidades/Notificacion.js";
 import {DatosUsuario} from "../../utilidades/DatosUsuario.js";
 const uiTanq = new UiTanque();
 const servNoti = new ServicioNotificacion();
@@ -116,7 +116,7 @@ export function Nuevo(){
             const metodo = document.getElementById('list-metodo').value;
 
             if (nom ===''|| num ===''||ubic ===''||fecha ===''||lar ===''||ancho ===''||altura ===''||metodo ==='') {
-                servNoti.notificarToast("error","complete todo los campos")
+                notificarToast("error","Complete todo los campos")
             }else{
               const $dU=DatosUsuario();
               let tanqueD={
@@ -141,7 +141,7 @@ export function Nuevo(){
             if (e.target.classList.contains("eliminar")) {
               let idte = e.target.getAttribute('_id');
               let rConf = confirm("¿Desea eliminar el tanque?");
-              rConf ? uiTanq.eliminarTanque(idte):servNoti.notificarToast("info","Cancelado");
+              rConf ? uiTanq.eliminarTanque(idte):notificarToast("info","Cancelado");
             }else if(e.target.classList.contains('editar')){
               let idt = e.target.getAttribute('_id');
               console.log(idt)

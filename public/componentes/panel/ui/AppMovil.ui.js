@@ -1,9 +1,6 @@
 import ServicioPanel from '../servicio/Panel.ser.js';
-import ServicioNotificacion from '../../utilidades/Notificacion.js';
-import {ventanModal} from '../../utilidades/VentanaModal.js';
+import {notificarToast} from '../../utilidades/Notificacion.js';
 const serAppMovil = new ServicioPanel();
-const servNoti = new ServicioNotificacion();
-
 class UiAppMovil{
 
     obtnerUsuariosApp(){
@@ -11,6 +8,7 @@ class UiAppMovil{
               this.listarUsuarios(datos.body)
             }).catch(err=>{
               console.log(err)
+              notificarToast("error","Al cargar datos")
             })
     }
 
@@ -42,11 +40,11 @@ class UiAppMovil{
 
     agregarUsuario(us){
       serAppMovil.hacerPeticion('/appmovilnuevo',{usuario:us},'POST').then(r=>{
-        this.obtnerUsuariosApp();
-        servNoti.notificarToast('success',r.body.msg);
+            this.obtnerUsuariosApp();
+            notificarToast('success',r.body.msg);
         }).catch(err=>{
               console.log(err)
-              servNoti.notificarToast('error','No se agregor el usuario');
+              notificarToast('error','No se agregor el usuario');
         })
     }
 
@@ -58,10 +56,10 @@ class UiAppMovil{
             accesoU=1
         } 
         serAppMovil.hacerPeticion('/appmovilestado',{id:idUsario,acceso:accesoU},'PUT').then(r=>{
-            servNoti.notificarToast('success',r.body.msg);
+            notificarToast('success',r.body.msg);
         }).catch(err=>{
             console.log(err)
-            servNoti.notificarToast('error','Transaccion Fallida');
+            notificarToast('error','Al modificar el registro.!');
         })
     }
 
@@ -70,18 +68,14 @@ class UiAppMovil{
         if (res) {
             serAppMovil.hacerPeticion('/eliminarusuario',{id:idUs},'PUT').then(r=>{
                 this.obtnerUsuariosApp();
-                servNoti.notificarToast('success',r.body.msg);
+                notificarToast('success',r.body.msg);
             }).catch(err=>{
                 console.log(err)
-                servNoti.notificarToast('error','Transaccion Fallida');
+                notificarToast('error','Al eliminar el registro');
             })
         }else{
-            servNoti.notificarToast('info','Eliminacion, cancelado');
+            notificarToast('info','Eliminacion, cancelado');
         }
     }
-
-
-   
-
 }
 export default UiAppMovil;

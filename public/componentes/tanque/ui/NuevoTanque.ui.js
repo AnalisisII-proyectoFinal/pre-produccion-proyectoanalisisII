@@ -12,7 +12,6 @@ import ServicioTanque from "../servicio/Tanque.ser.js";
 import {EditarTanque} from "../paginas/EditarTanque.js";
 import { ventanModal } from "../../utilidades/VentanaModal.js";
 const servTanque = new ServicioTanque();
-const servNoti = new ServicioNotificacion();
 
 class UiTanque {
     obtenerTanques(){

@@ -18,7 +18,6 @@ class ServicioInicio {
     }
     hacerPeticion(peticion,params,tipopeticion){
         return new Promise((resolve,reject)=>{
-            console.log('enviando parametros')
             fetch(this.url + (peticion ||''),{
                 headers: this.obtnerEncabezado(),
                 method: tipopeticion,

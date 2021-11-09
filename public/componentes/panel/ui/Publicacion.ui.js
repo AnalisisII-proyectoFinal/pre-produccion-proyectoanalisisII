@@ -3,7 +3,7 @@ import{EditarPublicacion} from '../paginas/EditarPublicacion.js';
 import ServicioPanel from '../servicio/Panel.ser.js';
 import {notificarToast} from '../../utilidades/Notificacion.js';
 const servPublicacion = new ServicioPanel();
-const servNoti= new ServicioNotificacion();
+
 
 
 class UiPublicacion {

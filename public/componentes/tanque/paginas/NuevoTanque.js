@@ -9,7 +9,6 @@ import {subirImagen} from "../../utilidades/SubirImagen.js";
 import {notificarToast} from "../../utilidades/Notificacion.js";
 import {DatosUsuario} from "../../utilidades/DatosUsuario.js";
 const uiTanq = new UiTanque();
-const servNoti = new ServicioNotificacion();
 
 /**
  * creacion de las opciones que tendra el modulo dashboard

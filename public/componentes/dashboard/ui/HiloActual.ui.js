@@ -2,7 +2,7 @@ import ServicioDashboard from "../servicio/dashboard.ser.js";
 import {notificarToast} from "../../utilidades/Notificacion.js";
 import { TargetaDash } from "../paginas/TargetaDash.js";
 const serDashboar = new ServicioDashboard();
-const servNoti = new ServicioNotificacion();
+
 class UiHiloActual{
     obtnerMuestras(){
         serDashboar.hacerPeticion('/progresoactual',{},'GET').then(datos=>{

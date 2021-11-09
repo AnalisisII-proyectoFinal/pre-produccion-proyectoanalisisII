@@ -18,7 +18,6 @@ class ServicioPanel {
     }
     hacerPeticion(peticion,params,tipopeticion){
         return new Promise((resolve,reject)=>{
-            console.log(`Enviando peticion a:${peticion}`)
             fetch(this.url + (peticion ||''),{
                 headers: this.obtnerEncabezado(),
                 method: tipopeticion,

@@ -2,7 +2,6 @@ import ServicioTanque from "../servicio/Tanque.ser.js";
 import {notificarToast} from "../../utilidades/Notificacion.js";
 import {EditarMetodoCloracion} from "../paginas/EditarMetodoCloracion.js";
 import {ventanModal} from "../../utilidades/VentanaModal.js";
-const servNoti = new ServicioNotificacion();
 const servTanq= new ServicioTanque();
 
 class UiMetodoCloracion{

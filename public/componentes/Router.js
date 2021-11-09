@@ -36,8 +36,6 @@ import {Ayuda} from './ayuda/Ayuda.js';
 import {notificarToast} from './utilidades/Notificacion.js';
 import UiAplicacion from './aplicacion/ui/Aplicacion.ui.js';
 import {DatosUsuario}from "./utilidades/DatosUsuario.js";
-
-const serNoti = new ServicioNotificacion();
 const uIApp= new UiAplicacion();
 
 

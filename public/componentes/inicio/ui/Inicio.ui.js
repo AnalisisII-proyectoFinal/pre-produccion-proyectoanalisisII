@@ -83,7 +83,6 @@ class UiInicio{
 
     crarTargetasPublicacion(publicaciones){
         const $pub = document.getElementById('publicaciones-i');
-        console.log(publicaciones);
         $pub.innerHTML='';
             let $fragment= document.createDocumentFragment();
             publicaciones.forEach(el=>{

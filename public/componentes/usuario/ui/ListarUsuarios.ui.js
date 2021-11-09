@@ -4,7 +4,6 @@ import {ventanModal} from "../../utilidades/VentanaModal.js";
 import {VerDetalles} from "../paginas/VerDetalles.js";
 import {EditarUsuario} from "../paginas/EditarUsuario.js";
 const servUsuario = new ServicioUsuario();
-const servNoti = new ServicioNotificacion();
 
 class UiListarUsuario{
     obtenerDatosUsuarios(){

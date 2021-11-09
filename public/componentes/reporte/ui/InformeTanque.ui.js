@@ -3,7 +3,7 @@ import {notificarToast}from "../../utilidades/Notificacion.js";
 import {ventanModal} from "../../utilidades/VentanaModal.js";
 import {InformeTanque}from "../paginas/InformeTanque.js";
 const servRep = new ServicioReportes();
-const servNoti = new ServicioNotificacion();
+
 
 class UiInformeTanque{
     obtenerTanques(){

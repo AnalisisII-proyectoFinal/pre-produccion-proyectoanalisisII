@@ -18,7 +18,6 @@ class PeticionEncabezado {
     }
     hacerPeticion(peticion,params,tipopeticion){
         return new Promise((resolve,reject)=>{
-            console.log('enviando parametros',params)
             fetch(this.url + (peticion ||''),{
                 headers: this.obtnerEncabezado(),
                 method: tipopeticion,

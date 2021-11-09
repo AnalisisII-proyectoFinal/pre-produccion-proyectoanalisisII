@@ -3,7 +3,7 @@ import {notificarToast} from "../../utilidades/Notificacion.js";
 import {InformeCS}from "../paginas/InformeCS.js";
 import {ventanModal}from "../../utilidades/VentanaModal.js";
 const servReporte = new ServicioReporte();
-const servNoti = new ServicioNotificacion();
+
 class UiInformeCS{
     obtnerMuestrasxHilo(idh){
         servReporte.hacerPeticion(`/centrosaludxhilo/${idh}`,{},'GET').then(datos=>{

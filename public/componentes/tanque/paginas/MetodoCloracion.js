@@ -49,7 +49,6 @@ export function MetodoCloracion(){
       </section>`;
         function initEditarMetodoCloracion(){
           const uiMetCl = new UiMetodoCloracion();
-          const servNoti = new ServicioNotificacion();
           document.getElementById('lista-metodos').addEventListener('click',(e)=>{
             if (e.target.classList.contains('editar')) {
               const idmcl = e.target.getAttribute('_id');

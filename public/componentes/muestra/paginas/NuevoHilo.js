@@ -75,7 +75,8 @@ export function NuevoHilo(date){
           })
 
 
-          document.getElementById('nh-ag-t').addEventListener('click',()=>{
+          document.getElementById('nh-ag-t').addEventListener('click',(e)=>{
+            e.preventDefault();
             const d =document.getElementById('nh-opc-t');
             if (d.value < 1) {
               const agregarTs=new UiNuevoHilo();

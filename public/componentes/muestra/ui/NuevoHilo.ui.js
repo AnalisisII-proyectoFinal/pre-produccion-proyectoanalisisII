@@ -77,7 +77,7 @@ class UiNuevoHilo{
     asignarTanques(){
         serNuevoHilo.hacerPeticion('/agregartanques',{},'POST').then(r=>{
             this.activarTanques()
-            notificarToast("error",r.body.msg)
+            notificarToast("success",r.body.msg)
         }).catch(err=>{
             console.log(err)
             notificarToast("error","Al cargar Datos")

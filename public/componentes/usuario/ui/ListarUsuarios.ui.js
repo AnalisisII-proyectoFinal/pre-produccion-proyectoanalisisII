@@ -33,23 +33,26 @@ class UiListarUsuario{
         const $fragment = document.createDocumentFragment();
         let $no = 1;
         usuarios.forEach(el => {
-            const $fila = document.createElement('tr');
-            $fila.innerHTML=`
-            <td>${$no}</td>
-            <td>${el.nombre}</td>
-            <td>${el.dpi}</td>
-            <td>${el.direccion}</td>
-            <td>${el.cargo}</td>
-            <td>
-            <button class="detalle" _id="${el.id}">📇​</button>
-            </td>
-            <td class="opciones-tbl">
-            <button class="editar" _id="${el.id}">✏️</button>
-            <button class="eliminar" _id="${el.id}">🗑️</button>
-            </td>
-            `;
-            $fragment.appendChild($fila)
-            $no++;
+            if (el.dpi !== 'default' ) {
+                const $fila = document.createElement('tr');
+                $fila.innerHTML=`
+                <td>${$no}</td>
+                <td>${el.nombre}</td>
+                <td>${el.dpi}</td>
+                <td>${el.direccion}</td>
+                <td>${el.cargo}</td>
+                <td>
+                <button class="detalle" _id="${el.id}">📇​</button>
+                </td>
+                <td class="opciones-tbl">
+                <button class="editar" _id="${el.id}">✏️</button>
+                <button class="eliminar" _id="${el.id}">🗑️</button>
+                </td>
+                `;
+                $fragment.appendChild($fila)
+                $no++;  
+            }
+           
         });
         $lista.appendChild($fragment)
     }

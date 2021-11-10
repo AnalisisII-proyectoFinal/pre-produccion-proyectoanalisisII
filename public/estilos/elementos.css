@@ -414,7 +414,7 @@ input:checked[type="checkbox"]::before
   position: absolute;
   width: 100%;
   height: 2px;
-  left: -30%;
+  left: -25%;
   top: 15px;
   z-index: -1;
 }

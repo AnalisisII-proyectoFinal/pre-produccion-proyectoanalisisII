@@ -45,12 +45,13 @@ export function Publicacion(){
                 <th>Titulo</th>
                 <th>Fecha Publicacion</th>
                 <th>Estado</th>
-                <th>Opciones</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
               </tr>
             </thead>
             <tfoot>
               <tr>
-                <th colspan='3'>Publicaciones</th>
+                <th colspan='6'>Publicaciones</th>
               </tr>
             </tfoot>
             <tbody id="lista-publicacion">

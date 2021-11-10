@@ -96,7 +96,7 @@ async function obtnerDatosCentroSalud(req,res) {
 
 //const {departamento,municipio,areasal,sersal,dissal,dirsal,logsal,logsiv} = req.body;
 async function actualizarDatosSalud(req,res) {
-    const {departamento,municipio,areasal,sersal,dissal,dirsal,imgs,imgsiv} = req.body;
+    const {departamento,municipio,areasal,sersal,dissal,dirsal,resp,carg,imgs,imgsiv} = req.body;
     try {        
         const pool = await getConexion();
         await pool.request()
@@ -106,6 +106,8 @@ async function actualizarDatosSalud(req,res) {
         .input('sersal',sql.VarChar(50),sersal)
         .input('dissal',sql.VarChar(50),dissal)
         .input('dirsal',sql.VarChar(100),dirsal)
+        .input('resp',sql.VarChar(100),resp)
+        .input('carg',sql.VarChar(100),carg)
         .input('imgs',sql.VarChar(200),imgs)
         .input('imgsiv',sql.VarChar(200),imgsiv)
         .execute('dbo.actualizardatossalud');

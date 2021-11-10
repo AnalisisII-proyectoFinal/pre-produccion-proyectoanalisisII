@@ -93,8 +93,10 @@ export function Institucion(){
                     <input type="text" class="input-dato" id="i-di-sal" placeholder="Distrito de salud" required="" disabled/></p>
                   <p><label for="" class="input-label">Director de Salud:</label>
                     <input type="text" class="input-dato" id="i-d-sal" placeholder="Director de Salud" required="" disabled/></p>
-                  <p></p>
-                  <p></p>
+                  <p><label for="" class="input-label">Responsable:</label>
+                    <input type="text" class="input-dato" id="i-res" placeholder="Responsable" required="" disabled/></p>
+                  <p><label for="" class="input-label">Cargo1:</label>
+                    <input type="text" class="input-dato" id="i-carg1" placeholder="Cargo1" required="" disabled/></p>
                 </div>
                   <div class="container-img">
                 <div class="card">
@@ -250,6 +252,8 @@ export function Institucion(){
             const $inpSalSer = document.getElementById('i-s-sal');
             const $inpSalDis = document.getElementById('i-di-sal');
             const $inpSalDir = document.getElementById('i-d-sal');
+            const $inpRes=document.getElementById('i-res');
+            const $inpCargo = document.getElementById('i-carg1')
             const $imgS = document.getElementById('prev-img-s');
             const $imgSiv = document.getElementById('prev-img-siv');
             let datosSalud ={
@@ -259,6 +263,8 @@ export function Institucion(){
               sersal:$inpSalSer.value,
               dissal:$inpSalDis.value,
               dirsal:$inpSalDir.value,
+              resp:$inpRes.value,
+              carg:$inpCargo.value,
               imgs:$imgS.src,
               imgsiv:$imgSiv.src
             }

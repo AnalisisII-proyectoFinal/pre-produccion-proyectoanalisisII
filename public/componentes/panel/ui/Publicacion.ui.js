@@ -33,6 +33,8 @@ class UiPublicacion {
               </td>
               <td>
               <button class="editar" _id="${el.idp}" t="${el.titulo}" d="${el.descripcion}" im="${el.img}">✏️</button>
+              </td>
+              <td>
               <button class="eliminar" _id="${el.idp}">🗑️</button>
               </td>`;
               $fragment.appendChild($fila)

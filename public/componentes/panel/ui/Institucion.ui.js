@@ -97,7 +97,9 @@ class UiInstitucion{
       const $inpSalDir = document.getElementById('i-d-sal');
       const $labSalFecha = document.getElementById('i-fe-sal');
       const $verlogoSal = document.getElementById('prev-img-s');
-      const $verlogoSiv = document.getElementById('prev-img-siv')
+      const $verlogoSiv = document.getElementById('prev-img-siv');
+      const $inpRes = document.getElementById('i-res');
+      const $inpCargo = document.getElementById('i-carg1')
 
       const $inputSal = document.querySelectorAll('.input-dato');
         $inputSal.forEach(el=>{el.disabled=false})
@@ -110,6 +112,8 @@ class UiInstitucion{
           $inpSalDis.value=datosSalud.dissal;
           $inpSalDir.value=datosSalud.dirsal;
           $labSalFecha.innerHTML=`Utlima actualizacion: ${datosSalud.fecha}`;
+          $inpRes.value = datosSalud.resp;
+          $inpCargo.value = datosSalud.carg;
           $verlogoSal.setAttribute('src',`${datosSalud.lsal}`);
           $verlogoSiv.setAttribute('src',`${datosSalud.lsiv}`)
           }).catch(err=>{

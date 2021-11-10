@@ -21,6 +21,7 @@ async function autenticarUsuario(req,res) {
             }else if(result.recordset[0].estado===0){
                     respuesta.exito(req,res,{},200);
             }else{
+                console.log(result.recordset)
                 respuesta.exito(req,res, result.recordset,200);
             }
         }

@@ -60,9 +60,44 @@ async function nuevaMuestraApp(req,res) {
     
 }
 
+async function obtenerMuestra(req,res){
+    const idm=req.params.id;
+    try {
+        
+        const pool = await getConexion();
+        const result = await pool.request()
+        .input('idm',sql.Int,idm)
+        .execute('dbo.uspobtenermuestra')
+        respuesta.exito(req,res,result.recordset,200)
+    } catch (error) {
+        respuesta.error(req,res,error,500)
+    }
+
+}
+
+async function actualizarMuestra(req,res){
+    const {id,pmuestra,ph,cl}=req.body;
+    try {
+        const pool = await getConexion();
+        await pool.request()
+        .input('id',sql.Int,id)
+        .input('pmuestra',sql.VarChar(100),pmuestra)
+        .input('ph',sql.VarChar(50),ph)
+        .input('cl',sql.VarChar(50),cl)
+        .execute('dbo.uspactualizarmuestra')
+        respuesta.exito(req,res,{msg:'Muestra actualizado'},200);
+    } catch (error) {
+        respuesta.error(req,res,error.message,500);
+    }
+}
+
+
+
 module.exports={
     obtenerMuestras,
     obtnerMuestrasCompletas,
     obtenerMuestrasIncompletas,
-    nuevaMuestraApp
+    nuevaMuestraApp,
+    obtenerMuestra,
+    actualizarMuestra
 }

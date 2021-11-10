@@ -57,7 +57,7 @@ export function Tutoriales(){
                     <td>4</td>
                     <td>Modulo de reporte</td>
                     <td>
-                      <button data="https://www.youtube.com/embed/-UgtNxSUqpo"" class="play"> ▶️ </button>
+                      <button data="https://www.youtube.com/embed/taSubkjZUA4"" class="play"> ▶️ </button>
                     </td>
                   </tr>
                   <tr>
@@ -71,14 +71,14 @@ export function Tutoriales(){
                     <td>6</td>
                     <td>Modulo de Usuario</td>
                     <td>
-                      <button data="https://www.youtube.com/embed/-UgtNxSUqpo" class="play"> ▶️ </button>
+                      <button data="https://www.youtube.com/embed/taSubkjZUA4" class="play"> ▶️ </button>
                     </td>
                   </tr>
                   <tr>
                   <td>7</td>
-                  <td>Otro video</td>
+                  <td>Aplicación Movil</td>
                   <td>
-                    <button data="https://www.youtube.com/embed/-UgtNxSUqpo" class="play"> ▶️ </button>
+                    <button data="https://www.youtube.com/embed/kTJczUoc26U" class="play"> ▶️ </button>
                   </td>
                 </tr>
                 </tbody>

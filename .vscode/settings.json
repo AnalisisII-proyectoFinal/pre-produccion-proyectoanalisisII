@@ -3,6 +3,6 @@
         "node_modules{,/**}",
         ".vscode{,/**}"
     ],
-    "appService.defaultWebAppToDeploy": "/subscriptions/e35afeb6-78a4-464c-80d9-ad27b1a03e66/resourceGroups/pre-produccion-proyectoAnalisisII/providers/Microsoft.Web/sites/vigilanciacalidadagua-test",
-    "appService.deploySubpath": "."
+    "appService.deploySubpath": ".",
+    "appService.defaultWebAppToDeploy": "/subscriptions/e35afeb6-78a4-464c-80d9-ad27b1a03e66/resourceGroups/pre-produccion-proyectoAnalisisII/providers/Microsoft.Web/sites/dirmunicipalaguasaneamiento"
 }

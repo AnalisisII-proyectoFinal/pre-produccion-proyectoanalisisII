@@ -51,7 +51,7 @@ async function nuevaMuestraApp(req,res) {
         .input('cl',sql.VarChar(50),cl)
 	    .input('idu',sql.Int,idu)
         .execute('dbo.uspnuevamestraapp');
-        respuesta.exito(req,res,{msg:'Muestra actualizada'},200)
+        respuesta.exito(req,res,{msg:'Muestra Ingresada'},200)
     } catch (error) {
         respuesta.error(req,res,error,500)
     }

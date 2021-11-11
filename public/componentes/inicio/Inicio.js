@@ -24,7 +24,7 @@ export function Inicio() {
           <h3 >Institucion</h3>
           <a href="">Municipalidad San Jose Chacayá</a>
           <h3>Direccion</h3>
-          <a href="">Agua y Saneamiento</a>
+          <a href="">Dirección Municipal de Agua y Sanemiento</a>
         </div>
         <div>
           <h3>Somos</h3>
@@ -42,7 +42,7 @@ export function Inicio() {
         <hr>
       <div class="footer-dato-fin">
           <h3>Sistema de Vigilancia Calidad Agua</h3>
-          <p> Direccion de agua y Saneamiento | Municipalidad de San Jose Chacayá.</p>
+          <p> Direccion Municipal de Agua y Saneamiento | Municipalidad de San Jose Chacayá.</p>
           <p>&#169; Municipalidad de San José Chacayá todos los derechos reservados.<br>Politica de Privacidad</p>
       </div>
     </footer>

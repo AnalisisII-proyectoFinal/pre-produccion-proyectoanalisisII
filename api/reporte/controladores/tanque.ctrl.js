@@ -48,19 +48,30 @@ async function obtenerDetalleTanque(req,res) {
     try {
         const pool = await getConexion();
         const result = await pool.request().input('idt',sql.Int,idt).execute('dbo.uspobtenertanquerep');
+        const resultM = await pool.request().input('idt',sql.Int,idt).execute('dbo.uspobtenermantenimiento');
         let dTanque = new DetalleTanque();
          if (result.recordset.length !== 0) {
             dTanque.agregarDetalles(result.recordset[0])
-            for (let i = 0; i < result.recordset.length; i++) {
-                let mant={
-                    titulo:result.recordset[i].titulo,
-                    descripcion:result.recordset[i].descripcion,
-                    mimg:result.recordset[i].mimg,
-                    mfecha:result.recordset[i].mfecha
+            if (resultM.recordset.length!==0) {
+                for (let i = 0; i < resultM.recordset.length; i++) {
+                    let mant={
+                        titulo:result.recordset[i].titulo,
+                        descripcion:result.recordset[i].descripcion,
+                        mimg:result.recordset[i].mimg,
+                        mfecha:result.recordset[i].mfecha
+                    }
+                    dTanque.agregarMantenimiento(mant)
+                } 
+            }else{
+                let mantt={
+                    titulo:'',
+                    descripcion:'',
+                    mimg:'',
+                    mfecha:''
                 }
-            dTanque.agregarMantenimiento(mant)
-                
+                dTanque.agregarMantenimiento(mantt)
             }
+            
             datat.push(dTanque)
         }
         respuesta.exito(req,res,datat,200)

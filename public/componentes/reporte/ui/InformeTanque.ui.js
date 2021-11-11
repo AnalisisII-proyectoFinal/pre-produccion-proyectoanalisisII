@@ -57,12 +57,12 @@ class UiInformeTanque{
     }
     informeTanque(tanque){
         console.log(tanque)
-        let mante=null; 
-        if (tanque.mants.length===0) {
+        let mante=tanque.mants; 
+        /*if (tanque.mants.length===0) {
             mante=0;
         }else{
             mante=tanque.mants;
-        } 
+        } */
        ventanModal(InformeTanque(tanque,mante)) 
     }
 }

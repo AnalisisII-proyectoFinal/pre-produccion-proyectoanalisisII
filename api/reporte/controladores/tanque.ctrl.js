@@ -55,10 +55,10 @@ async function obtenerDetalleTanque(req,res) {
             if (resultM.recordset.length!==0) {
                 for (let i = 0; i < resultM.recordset.length; i++) {
                     let mant={
-                        titulo:result.recordset[i].titulo,
-                        descripcion:result.recordset[i].descripcion,
-                        mimg:result.recordset[i].mimg,
-                        mfecha:result.recordset[i].mfecha
+                        titulo:resultM.recordset[i].titulo,
+                        descripcion:resultM.recordset[i].descripcion,
+                        mimg:resultM.recordset[i].mimg,
+                        mfecha:resultM.recordset[i].mfecha
                     }
                     dTanque.agregarMantenimiento(mant)
                 } 

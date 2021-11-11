@@ -1,3 +1,9 @@
+function formatearFecha(fecha){
+    const f = new Date(fecha);
+    const mes = f.getMonth() + 1; 
+    const dia = f.getDate();
+    return `${(dia < 10 ? '0' : '').concat(dia)}-${(mes < 10 ? '0' : '').concat(mes)}-${f.getFullYear()}`;
+}
 export function InformeTanque(mant,mante) {
     console.log(mant)
     const $contenedorInforme = document.createElement('div');
@@ -32,7 +38,7 @@ export function InformeTanque(mant,mante) {
         <ol>Nombre del sistema: <span>${mant.tanque}</span></ol>
         <ol>Numero del sistema: <span>${mant.numero}</span></ol>
         <ol>Ubicacion del sistema: <span>${mant.ubicacion}</span></ol>
-        <ol>Fecha de inicio funcionamiento: <span>${mant.ffecha}</span></ol>
+        <ol>Fecha de inicio funcionamiento: <span>${formatearFecha(mant.ffecha)}</span></ol>
         <ol>Largo: <span>${mant.largo}</span></ol>
         <ol>Ancho: <span>${mant.ancho}</span></ol>
         <ol>Alto: <span>${mant.alto}</span></ol>
@@ -52,30 +58,30 @@ export function InformeTanque(mant,mante) {
     $tblHead.innerHTML=`
         <tr>
             <th class="fila-dato-inf">No.</th>
-            <th class="fila-dato-inf">titulo</th>
-            <th class="fila-dato-inf">descripcion</th>
-            <th class="fila-dato-inf">fecha</th>
-            <th class="fila-dato-inf">imagen</th>
-            <th class="fila-dato-inf">otro</th>
+            <th class="fila-dato-inf">Mantenimiento</th>
+            <th class="fila-dato-inf">Descripcion</th>
+            <th class="fila-dato-inf">Fecha de Mantenimiento</th>
+            <th class="fila-dato-inf">Fotografia</th>
         </tr>
     `;
     $tblMantenimiento.appendChild($tblHead);
     const $tblbody=document.createElement('tbody');
     const $frag = document.createDocumentFragment();
+    let $no=1
     if (mante!==0) {
         for (let i = 0; i < mante.length; i++) {
             const $fila = document.createElement('tr');
             $fila.innerHTML=`
-                <td class="fila-dato-inf">1</td>
+                <td class="fila-dato-inf">${$no}</td>
                 <td class="fila-dato-inf">${mante[i].titulo}</td>
                 <td class="fila-dato-inf">${mante[i].descripcion}</td>
-                <td class="fila-dato-inf">${mante[i].mfecha}</td>
+                <td class="fila-dato-inf">${formatearFecha(mante[i].mfecha)}</td>
                 <td class="fila-dato-inf">
-                    <img width="50px" height="50px" src="https://res.cloudinary.com/municipalidad-san-jose-chacaya/image/upload/v1633991805/yrzok1aak9dd1z8dyc8q.png" alt="">
+                    <img width="50px" height="50px" src="${mante[i].mimg}" alt="img">
                 </td>
-                <td class="fila-dato-inf">${mante[i].mimg}</td>
             `;
             $frag.appendChild($fila);
+            $no++;
         }
     }else{
         const $fila2 = document.createElement('tr');

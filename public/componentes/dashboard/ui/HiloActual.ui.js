@@ -1,4 +1,4 @@
-import ServicioDashboard from "../servicio/dashboard.ser.js";
+import ServicioDashboard from "../servicio/Dashboard.Ser.js";
 import {notificarToast} from "../../utilidades/Notificacion.js";
 import { TargetaDash } from "../paginas/TargetaDash.js";
 const serDashboar = new ServicioDashboard();

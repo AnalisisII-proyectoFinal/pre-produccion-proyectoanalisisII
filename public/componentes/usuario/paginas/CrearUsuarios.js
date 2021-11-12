@@ -15,13 +15,13 @@ export function CrearUsuarios(){
               </div>
             <form action="" class="f-datos-usuario">
               <div><label for="" class="input-label">Primer Nombre:</label>
-                <input type="text" class="input-dato"  id="u-pn" placeholder="Segundo apellido" required=""/></div>
+                <input type="text" class="input-dato"  id="u-pn" placeholder="Primer Nombre" required=""/></div>
               <div><label for="" class="input-label">Segundo Nombre:</label>
-                <input type="text" class="input-dato" id="u-sn" placeholder="Segundo apellido" required=""/></div>
+                <input type="text" class="input-dato" id="u-sn" placeholder="Segundo Nombre" required=""/></div>
               <div><label for="" class="input-label">Primer Apellido:</label>
-                <input type="text" class="input-dato"  id="u-pa" placeholder="Primer Nombre" required=""/></div>
+                <input type="text" class="input-dato"  id="u-pa" placeholder="Primer Apellido" required=""/></div>
               <div><label for="" class="input-label">Segundo Apellido:</label>
-                <input type="text" class="input-dato" id="u-sa" placeholder="Segundo Nombre" required=""/></div>
+                <input type="text" class="input-dato" id="u-sa" placeholder="Segundo Apellido" required=""/></div>
               <div><label for="" class="input-label">Fecha de Nacimiento:</label>
                 <input type="date" class="input-dato" id="u-fn" placeholder="" required=""/></div>
               <div><label for="" class="input-label">DPI:</label>

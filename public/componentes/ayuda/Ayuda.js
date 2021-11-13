@@ -6,8 +6,7 @@
  */
 import {OpcAyuda} from './OpcAyuda.js'
 import { Tutoriales} from './paginas/Tutoriales.js';
-import { ManualWeb } from './paginas/ManualWeb.js';
-import { ManualMovil } from './paginas/ManualMovil.js';
+import { Manuales } from './paginas/Manuales.js';
 
 /**
  * Unificacion de componentes del modulo
@@ -22,9 +21,7 @@ export function Ayuda() {
     const $paginas = document.createElement('div');
     $paginas.classList.add("contenido-pagina")
     $paginas.appendChild(Tutoriales());
-    $paginas.appendChild(ManualWeb());
-    $paginas.appendChild(ManualMovil());
-    
+    $paginas.appendChild(Manuales());    
     $ayuda.appendChild($paginas);
     return $ayuda;
 }

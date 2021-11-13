@@ -19,28 +19,43 @@
 .color-video{
     background-color: rgb(3, 52, 187);
 }
-.tutoriales-buscador
-{
-    display: flex;
-    justify-content: flex-end;
-}
 
-.pag-ayuda-tutoriales{
-    background-color: rgba(2, 26, 206, 0.568);
-    text-align:center;
-    width: 100%;
-    max-width: 1000px;
-    margin: 3px auto;
+.contenedor-manuales{
     display: grid;
-    grid-area: 20px;
+    place-items: center;
+    grid-template-columns: 30% 30% 30%;
+    gap: 5%;
+}
+.contenedor-manual{
+    width: 300px;
+    height: 450px;
+    padding: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--quinto-color);
+    text-align: center;
+    color: white;
+}
+.manual-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
-.pdfview{
-background-color: rgb(20, 24, 255);
-margin: 3px;
+.manual-img img{
+    width: 200px;
+    height: 250px;
 }
-
-
+.contenedor-manual a{
+    text-decoration: none;
+}
+.contenedor-manual button{
+    width: 60%;
+}
 
 
 

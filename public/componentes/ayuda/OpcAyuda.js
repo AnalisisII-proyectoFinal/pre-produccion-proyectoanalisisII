@@ -28,8 +28,7 @@ export function OpcAyuda(){
         $opcayuda.innerHTML=`
                     <div><img src="./assets/img/help.svg" alt="img"></div>
                     <button id="btn-1" class="btn-modulo">Tutoriales</button>
-                    <button id="btn-2" class="btn-modulo">Manual de App Web</button>
-                    <button id="btn-3" class="btn-modulo">Manual de App Móvil</button>
+                    <button id="btn-2" class="btn-modulo">Manuales</button>
         `;
         /**
          * inicio de funcionalidades

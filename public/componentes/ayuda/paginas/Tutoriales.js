@@ -15,7 +15,7 @@ export function Tutoriales(){
             <hr>
             <div class="contendedor-video">
             <div>
-                <iframe id="video-player" width="100%" height="500px" src="https://www.youtube.com/embed/TUVcZfQe-Kw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe id="video-player" width="100%" height="500px" src="https://www.youtube.com/embed/3ouYwrZWSYo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="tabla-lista" id="list-videos">
               <table>
@@ -36,19 +36,19 @@ export function Tutoriales(){
                     <td>1</td>
                     <td>Introduccion</td>
                     <td>
-                      <button data="https://www.youtube.com/embed/TUVcZfQe-Kw" class="play"> ▶️ </button>
+                      <button data="https://www.youtube.com/embed/EsTOwrEfvGU" class="play"> ▶️ </button>
                     </td>
                   </tr>
                   <tr>
                     <td>2</td>
-                    <td>Modulo Tanque</td>
+                    <td>Modulo de Tanque</td>
                     <td>
                       <button data="https://www.youtube.com/embed/3ouYwrZWSYo" class="play"> ▶️ </button>
                     </td>
                   </tr>
                   <tr>
                     <td>3</td>
-                    <td>Modulo Muestra</td>
+                    <td>Modulo de Muestra</td>
                     <td>
                       <button data="https://www.youtube.com/embed/ss354662niA" class="play"> ▶️ </button>
                     </td>
@@ -57,7 +57,7 @@ export function Tutoriales(){
                     <td>4</td>
                     <td>Modulo de reporte</td>
                     <td>
-                      <button data="https://www.youtube.com/embed/taSubkjZUA4"" class="play"> ▶️ </button>
+                      <button data="https://www.youtube.com/embed/cjrRfie9zBI" class="play"> ▶️ </button>
                     </td>
                   </tr>
                   <tr>
@@ -71,7 +71,7 @@ export function Tutoriales(){
                     <td>6</td>
                     <td>Modulo de Usuario</td>
                     <td>
-                      <button data="https://www.youtube.com/embed/taSubkjZUA4" class="play"> ▶️ </button>
+                      <button data="https://www.youtube.com/embed/19JOdTPaZKI" class="play"> ▶️ </button>
                     </td>
                   </tr>
                   <tr>
@@ -94,7 +94,6 @@ export function Tutoriales(){
               }
               lista.addEventListener('click',(e)=>{
                 if (e.target.classList.contains('play')) {
-                  console.log("presionando")
                   cambiarVideo(e.target.getAttribute('data'))
                 }
               })
